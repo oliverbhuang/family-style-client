@@ -3,60 +3,12 @@
 
   angular
     .module('app', [
-      'ionic',
-      'app.service'
+      'ionic'
     ])
     .config(configBlock)
     .run(runBlock);
 
-  function configBlock($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('tab', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'app/tabs/tabs.html'
-    })
-    .state('tab.dash', {
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'app/dash/tab-dash.html'
-        }
-      }
-    })
-    .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'app/chats/tab-chats.html',
-          controller: 'ChatsCtrl',
-          controllerAs: 'vm'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'app/chats/chat-detail.html',
-          controller: 'ChatDetailCtrl',
-          controllerAs: 'vm'
-        }
-      }
-    })
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'app/accounts/tab-account.html',
-          controller: 'AccountCtrl',
-          controllerAs: 'vm'
-        }
-      }
-    });
-
-    $urlRouterProvider.otherwise('/tab/dash');
-  }
+  function configBlock($stateProvider, $urlRouterProvider) {}
 
   function runBlock($ionicPlatform) {
     $ionicPlatform.ready(function() {
