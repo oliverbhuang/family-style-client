@@ -16,42 +16,42 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
+<!-- ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
   >Family Style
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title. -->
   >Make new friends over a family style meal. 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+<!--   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
 
   > Often when going to restaurants, you get limited to one dish when you wish you could have tried everything. The Family Style app allows people who love to share meals an opportunity to make new friends over comforting food. This is great for locals, tourists and business travelers to meet new people.  
 
 ## Problem ##
-  > Describe the problem your product solves.
-  >The problem: You want to try multiple dishes at a restaurant. But you can't do that when you are alone. 
+<!--   > Describe the problem your product solves. -->
+  >You want to try multiple dishes at a restaurant. But you can't do that when you are alone. 
 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+<!--   > Describe how your product elegantly solves the problem. -->
   >Family Style provides you a new group of friends to share multiple dishes with. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+<!--   > A quote from a spokesperson in your company. -->
 
   >"Family Style gives you an opporunity to try more restaurant dishes and make new friends in the process." 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+<!--   > Describe how easy it is to get started. -->
   >Download the app. Then pick a restaurant or find an existing Family Style gathering coming up to attend. 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+<!--   > Provide a quote from a hypothetical customer that describes how they experienced the benefit. -->
 
   >"When I was on business I use to get depressed eating alone at restaurants everyday. It just reminded me of how alone I was. The Family Style has changed everything! The app has given me the opporunity to meet new people over dinner. The sharing of food makes it comforting and there is so much more to talk about when you start the conversation with the foods you like. Thank you Family Style for making dinner exciting."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+<!--   > Wrap it up and give pointers where the reader should go next. -->
   >Go meet new friends and try multiple restaurant dishes! Download the app today on the Apple App Store. 
