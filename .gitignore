@@ -63,3 +63,7 @@ target/
 
 #dependencies
 node_modules
+
+#ionic specific
+plugins
+platforms
