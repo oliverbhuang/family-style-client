@@ -33,6 +33,12 @@
         templateUrl: 'app/outings/outings.html',
         controller: 'OutingsController',
         controllerAs: 'vm'
+      })
+      .state('create', {
+        url: '/create',
+        templateUrl: 'app/tables/create.html',
+        controller: 'CreateController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');
