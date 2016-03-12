@@ -21,6 +21,12 @@
         templateUrl: 'app/tables/tables.html',
         controller: 'TablesController',
         controllerAs: 'vm'
+      })
+      .state('search', {
+        url: '/search',
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');
