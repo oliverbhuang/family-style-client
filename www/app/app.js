@@ -27,6 +27,12 @@
         templateUrl: 'app/search/search.html',
         controller: 'SearchController',
         controllerAs: 'vm'
+      })
+      .state('outings', {
+        url: '/outings',
+        templateUrl: 'app/outings/outings.html',
+        controller: 'OutingsController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');

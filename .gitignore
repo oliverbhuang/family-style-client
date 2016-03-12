@@ -27,6 +27,7 @@ build/Release
 bower_components
 node_modules
 jspm_packages
+www/lib
 
 # Optional npm cache directory
 .npm
