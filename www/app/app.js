@@ -16,6 +16,12 @@
         controller: 'MainController',
         controllerAs: 'vm'
       })
+      .state('tables', {
+        url: '/tables',
+        templateUrl: 'app/tables/tables.html',
+        controller: 'TablesController',
+        controllerAs: 'vm'
+      })
       .state('search', {
         url: '/search',
         templateUrl: 'app/search/search.html',
