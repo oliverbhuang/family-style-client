@@ -8,7 +8,17 @@
     .config(configBlock)
     .run(runBlock);
 
-  function configBlock($stateProvider, $urlRouterProvider) {}
+  function configBlock($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('main', {
+        url: '/main',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainController',
+        controllerAs: 'vm'
+      });
+
+    $urlRouterProvider.otherwise('/main');
+  }
 
   function runBlock($ionicPlatform) {
     $ionicPlatform.ready(function() {
