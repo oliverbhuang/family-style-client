@@ -15,6 +15,12 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'vm'
+      })
+      .state('tables', {
+        url: '/tables',
+        templateUrl: 'app/tables/tables.html',
+        controller: 'TablesController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');
