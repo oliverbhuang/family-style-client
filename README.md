@@ -5,6 +5,7 @@
 Install ionic and cordova
 ```bash
 $ npm install -g ionic cordova
+$ ionic lib update
 ```
 ```bash
 $ npm install
