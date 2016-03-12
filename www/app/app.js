@@ -39,6 +39,12 @@
         templateUrl: 'app/create/create.html',
         controller: 'CreateController',
         controllerAs: 'vm'
+      })
+      .state('myTable', {
+        url: '/myTable',
+        templateUrl: 'app/myTable/myTable.html',
+        controller: 'MyTableController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');
@@ -59,4 +65,3 @@
     });
   }
 })();
-
