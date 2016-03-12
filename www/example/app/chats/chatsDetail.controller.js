@@ -10,5 +10,5 @@
   function ChatDetailCtrl ($stateParams, ChatsFactory) {
     var vm = this;
     vm.chat = ChatsFactory.get($stateParams.chatId);
-  };
+  }
 })();
