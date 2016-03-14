@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-content class="padding text-center">
+    <h2>Business Name {{ vm.business.name }}</h2>
+    <p class="bus-category">
+      Business Categories {{ vm.business.categories }}
+    </p>
+    <p class="bus-address">
+      Business Address {{ vm.business.address }}
+    </p>
+    <hr/>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="datetime-local" ng-model="vm.datetime">
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="Max # of people" ng-model="vm.people.max">
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="Min # of people" ng-model="vm.people.min">
+      </label>
+      <button class="button button-block button-assertive">
+        Create My Table
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
