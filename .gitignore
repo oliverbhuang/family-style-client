@@ -1,3 +1,4 @@
+.DS_Store
 # Logs
 logs
 *.log
@@ -34,28 +35,7 @@ www/lib
 
 # Optional REPL history
 .node_repl_history
-.DS_Store
-node_modules
-*.sw[mnpcod]
-*.log
-*.tmp
-*.tmp.*
-log.txt
-example/cordova/iOS/www/js/framework
 
-example/cordova/iOS/www/js/framework
-.sass-cache/
-
-bower_components/
-components/
-tmp
-temp
-dist
-lib/
-
-.idea
-
-.versions
-
-# Coverage directory used by tools like istanbul
-coverage/
+#ionic specific
+plugins
+platforms
