@@ -5,22 +5,25 @@
       <form>
         <input type="text"
           name="restaurant"
-          placeholder="Restaurant name, category">
+          placeholder="Restaurant name, category"
+          ng-model="restaurant">
         <input type="text"
           name="location"
-          placeholder="Location">
+          placeholder="Location"
+          ng-model="location">
       </form>
-      <button class="button button-block button-assertive">
-        Search
+      <button class="button button-block button-assertive" ng-click="restSearch()">
+        Search {{restResults}}
       </button>
     </div>
     <div>
-      <!-- Placeholder data -->
-      <!-- Will have ng-repeat -->
-      <div>
-        <h3>The Phoenix Bar & Irish Gathering House</h3>
-        <p>Pubs, Sports Bars, Irish</p>
-        <p>881 Valencia St</p>
+      <div ng-repeat="rest in vm.restResults">
+        <h3>{{rest.name}}</h3>
+        <span ng-repeat="cat in rest.categories">
+          <a ng-href="http://www.yelp.com/search?find_desc={{rest.name}}&find_loc={{rest.location.city}},{{rest.location.state_code}}&start=0&cflt={{cat[0]}}">{{cat[0]}}</a>
+        </span>
+        <p>{{rest.location.address[0]}}, {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}</p>
+        <a class="button icon-left ion-ios7-telephone button-calm button-outline" ng-href="tel: {{rest.display_phone}}">{{rest.display_phone}}</a>
         <button class="button button-block button-assertive">
           Table Options
         </button>
