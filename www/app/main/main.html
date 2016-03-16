@@ -7,9 +7,9 @@
     <hr/>
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="Name" ng-model="vm.name">
+        <input type="text" placeholder="Name" ng-model="vm.username">
       </label>
-      <button class="button button-block button-assertive">
+      <button class="button button-block button-assertive" ng-click="vm.signin(vm.username)">
         Sign In
       </button>
     </div>
