@@ -15,15 +15,15 @@
 
     function signin (username) {
       return $http.post('http://localhost:8080/users/', {username: username})
-      .then(signinUser)
-      .catch(signinUserFailed);
+      .then(signinComplete)
+      .catch(signinFailed);
 
-      function signinUser(response) {
+      function signinComplete(response) {
         $window.localStorage['userid'] = response.data._id;
         $state.go('search');
       }
 
-      function signinUserFailed(error) {
+      function signinFailed(error) {
         console.error(error.data);
       }
     }
@@ -31,6 +31,5 @@
     function getUserId() {
       return $window.localStorage['userid'];
     }
-
   }
 })();
