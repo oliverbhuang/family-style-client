@@ -116,6 +116,6 @@
   }
 
   function getAllEvents(tablesService, $stateParams) {
-    return tableService.getAllEvents($stateParams.yelpId);
+    return tablesService.getAllEvents($stateParams.yelpId);
   }
 })();
