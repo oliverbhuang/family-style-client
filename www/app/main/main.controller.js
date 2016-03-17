@@ -3,8 +3,11 @@
     .module('app')
     .controller('MainController', MainController);
 
-  function MainController() {
+  MainController.$inject = ['usersService'];
+
+  function MainController(usersService) {
     var vm = this;
-    vm.name = '';
+    vm.username = '';
+    vm.signin = usersService.signin;
   }
 })();

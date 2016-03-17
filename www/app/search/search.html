@@ -6,14 +6,14 @@
         <input type="text"
           name="restaurant"
           placeholder="Restaurant name, category"
-          ng-model="restaurant">
+          ng-model="vm.restaurant">
         <input type="text"
           name="location"
           placeholder="Location"
-          ng-model="location">
+          ng-model="vm.location">
       </form>
-      <button class="button button-block button-assertive" ng-click="restSearch()">
-        Search {{restResults}}
+      <button class="button button-block button-assertive" ng-click="vm.restSearch(vm.restaurant, vm.location)">
+        Search
       </button>
     </div>
     <div>
@@ -24,7 +24,7 @@
         </span>
         <p>{{rest.location.address[0]}}, {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}</p>
         <a class="button icon-left ion-ios7-telephone button-calm button-outline" ng-href="tel: {{rest.display_phone}}">{{rest.display_phone}}</a>
-        <button class="button button-block button-assertive">
+        <button class="button button-block button-assertive" ng-click="vm.tablePage()">
           Table Options
         </button>
       </div>
