@@ -50,7 +50,12 @@
         url: '/myTable/:eventId',
         templateUrl: 'app/myTable/myTable.html',
         controller: 'MyTableController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          getTable: function(tablesService, $stateParams) {
+            return tablesService.getTableData($stateParams.eventId);
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/main');

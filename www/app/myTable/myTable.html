@@ -1,26 +1,28 @@
 <ion-view>
   <ion-content class="padding text-center">
-    <h2>Business Name {{ vm.business.name }}</h2>
-    <p class="bus-category">
-      Business Categories {{ vm.business.categories }}
-    </p>
-    <p class="bus-address">
-      Business Address {{ vm.business.address }}
-    </p>
+    <div>
+      <div>
+        <h3>{{vm.restResults.name}}</h3>
+        <p>{{vm.restResults.location.address}},
+          {{vm.restResults.location.city}},
+          {{vm.restResults.location.state_code}},
+          {{vm.restResults.location.postal_code}}
+        </p>
+      </div>
+    </div>
     <hr/>
     <div class="list list-inset">
-      <label class="item item-input">
-        <input type="datetime-local" ng-model="vm.datetime">
-      </label>
-      <label class="item item-input">
-        <input type="number" placeholder="Max # of people" ng-model="vm.people.max">
-      </label>
-      <label class="item item-input">
-        <input type="number" placeholder="Min # of people" ng-model="vm.people.min">
-      </label>
-      <button class="button button-block button-assertive">
-        Create My Table
-      </button>
+      <p>
+        There are {{vm.users.length}} people are going to this event on {{vm.dateTime}}.
+      </p>
+      <p>
+        The creator has requested a minimum of {{vm.people.min}} people or it will be canceled.
+      </p>
+    </div>
+    <div>
+      <ul ng-repeat="user in vm.users">
+        <li>{{user.username}}<span ng-show='$index == 0'> (creator)</span></li>
+      </ul>
     </div>
   </ion-content>
 </ion-view>
