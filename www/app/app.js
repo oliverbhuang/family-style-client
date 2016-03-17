@@ -114,4 +114,8 @@
       }
     });
   }
+
+  function getAllEvents(tablesService, $stateParams) {
+    return tableService.getAllEvents($stateParams.yelpId);
+  }
 })();
