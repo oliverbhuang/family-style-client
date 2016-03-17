@@ -13,7 +13,7 @@
     return service;
 
     function yelpSearch(rest, loc) {
-      return $http.post('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
+      return $http.get('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
         .then(yelpData)
         .catch(yelpFailed);
     }
