@@ -16,7 +16,7 @@
       return $http.get('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
         .then(yelpData)
         .catch(yelpFailed);
-    
+
       function yelpData(response) {
         return response.data.businesses;
       }

@@ -23,7 +23,7 @@
         controllerAs: 'vm',
         resolve: {
           getAllEvents: getAllEvents
-        }        
+        }
       })
       .state('search', {
         url: '/search',
@@ -35,7 +35,10 @@
         url: '/outings',
         templateUrl: 'app/outings/outings.html',
         controller: 'OutingsController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          getUserEvents: getUserEvents
+        }
       })
       .state('create', {
         url: '/create',
@@ -44,7 +47,7 @@
         controllerAs: 'vm'
       })
       .state('myTable', {
-        url: '/myTable',
+        url: '/myTable/:eventId',
         templateUrl: 'app/myTable/myTable.html',
         controller: 'MyTableController',
         controllerAs: 'vm'
@@ -54,7 +57,11 @@
 
     function getAllEvents(tablesService, $stateParams) {
       return tablesService.getAllEvents($stateParams.yelpId);
-    }    
+    }
+
+    function getUserEvents(usersService) {
+      return usersService.getUserEvents();
+    }
   }
 
   function runBlock($ionicPlatform) {

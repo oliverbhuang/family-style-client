@@ -10,11 +10,10 @@
     vm.restResults = [];
     vm.restSearch = function (rest, loc) {
       yelpService.yelpSearch(rest, loc)
-      .then(function(data){
-        vm.restResults = data; 
+      .then(function(data) {
+        vm.restResults = data;
       });
     };
     vm.tablePage = tablesService.toTablePage;
-
   }
 })();

@@ -15,20 +15,19 @@
     return service;
 
     function toTablePage(restaurantObj) {
-      setRestaurant(restaurantObj); 
+      setRestaurant(restaurantObj);
       $state.go('tables', {yelpId: restaurantObj.id});
     }
 
-    var restaurant; 
+    var restaurant;
 
-    function setRestaurant(restaurantObj){
-      restaurant = restaurantObj; 
+    function setRestaurant(restaurantObj) {
+      restaurant = restaurantObj;
     }
 
-    function getRestaurant(){
-      return restaurant; 
+    function getRestaurant() {
+      return restaurant;
     }
-
 
     function getAllEvents(yelpId) {
       return $http.get('http://localhost:8080/events?yelpId=' + yelpId)

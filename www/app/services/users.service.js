@@ -8,7 +8,8 @@
   function usersService($http, $window, $state) {
     var service = {
       signin: signin,
-      getUserId: getUserId
+      getUserId: getUserId,
+      getUserEvents: getUserEvents
     };
 
     return service;
@@ -30,6 +31,20 @@
 
     function getUserId() {
       return $window.localStorage['userid'];
+    }
+
+    function getUserEvents() {
+      return $http.get('http://localhost:8080/users/' + $window.localStorage['userid'])
+      .then(getUserComplete)
+      .catch(getUserFailed);
+
+      function getUserComplete(response) {
+        return response.data.events;
+      }
+
+      function getUserFailed(error) {
+        console.error(error.data);
+      }
     }
   }
 })();
