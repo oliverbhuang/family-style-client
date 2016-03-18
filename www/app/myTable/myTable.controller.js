@@ -9,10 +9,9 @@
     var vm = this;
 
     vm.dateTime = getTable.dateTime;
+    vm.location = getTable.restaurantAddress;
     vm.max = getTable.max;
     vm.name = getTable.restaurantName;
-    vm.location = getTable.restaurantAddress;
-
     vm.users = getTable.users;
   }
 })();
