@@ -41,7 +41,7 @@
         }
       })
       .state('create', {
-        url: '/create',
+        url: '/tables/create',
         templateUrl: 'app/create/create.html',
         controller: 'CreateController',
         controllerAs: 'vm'

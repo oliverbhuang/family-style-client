@@ -7,7 +7,7 @@
 
   function SearchController(yelpService, tablesService) {
     var vm = this;
-    vm.restResults = [];
+
     vm.restSearch = function (rest, loc) {
       yelpService.yelpSearch(rest, loc)
       .then(function(data) {
