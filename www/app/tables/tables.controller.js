@@ -3,11 +3,15 @@
     .module('app')
     .controller('TablesController', TablesController);
 
-  function TablesController() {
-    var vm = this;
+	TablesController.$inject = ['$stateParams','tablesService', 'getAllEvents'];
 
-    vm.title = '';
-    vm.address = '';
-    vm.tables = [];
+  function TablesController($stateParams, tablesService, getAllEvents) {
+    var vm = this;
+    var restaurant = tablesService.getRestaurant(); 
+
+    vm.title = restaurant.name;
+    //display address has to be with a "_" in the middle
+    vm.address = restaurant.location.display_address;  
+    vm.tables = getAllEvents;
   }
 })();
