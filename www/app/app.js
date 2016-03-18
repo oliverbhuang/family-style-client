@@ -50,7 +50,10 @@
         url: '/myTable/:eventId',
         templateUrl: 'app/myTable/myTable.html',
         controller: 'MyTableController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          getTable: getTable
+        }
       });
 
     $urlRouterProvider.otherwise('/main');
@@ -61,6 +64,10 @@
 
     function getUserEvents(usersService) {
       return usersService.getUserEvents();
+    }
+
+    function getTable(tablesService, $stateParams) {
+      return tablesService.getTableData($stateParams.eventId);
     }
   }
 

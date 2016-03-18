@@ -13,7 +13,8 @@
       setRestaurant: setRestaurant,
       getRestaurant: getRestaurant,
       getAllEvents: getAllEvents,
-      createTable: createTable
+      createTable: createTable,
+      getTableData: getTableData
     };
     return service;
 
@@ -57,6 +58,21 @@
       function getAllEventsFailed(err) {
         console.err(err);
       }
+    }
+
+    function getTableData(eventId) {
+      return $http.get('http://localhost:8080/events/' + eventId)
+      .then(getTableComplete)
+      .catch(getTableFailed);
+
+      function getTableComplete(response) {
+        return response.data;
+      }
+
+      function getTableFailed(error) {
+        console.error(error.data);
+      }
+
     }
   }
 })();
