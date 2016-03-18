@@ -3,9 +3,9 @@
     .module('app')
     .controller('TablesController', TablesController);
 
-  TablesController.$inject = ['$stateParams','tablesService', 'getAllEvents'];
+  TablesController.$inject = ['$stateParams','$filter','tablesService', 'getAllEvents'];
 
-  function TablesController($stateParams, tablesService, getAllEvents) {
+  function TablesController($stateParams, $filter, tablesService, getAllEvents) {
     var vm = this;
     var restaurant = tablesService.getRestaurant();
 
