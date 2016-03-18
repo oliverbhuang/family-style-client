@@ -3,9 +3,9 @@
     .module('app')
     .factory('yelpService', yelpService);
 
-  yelpService.$inject = ['$http', '$state'];
+  yelpService.$inject = ['$http'];
 
-  function yelpService($http, $state) {
+  function yelpService($http) {
     var service = {
       yelpSearch: yelpSearch
     };
@@ -16,15 +16,14 @@
       return $http.get('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
         .then(yelpData)
         .catch(yelpFailed);
-    }
 
-    function yelpData(response) {
-      return response.businesses;
-    }
+      function yelpData(response) {
+        return response.data.businesses;
+      }
 
-    function yelpFailed(error) {
-      console.error(error.data);
+      function yelpFailed(error) {
+        console.error(error.data);
+      }
     }
-
   }
 })();

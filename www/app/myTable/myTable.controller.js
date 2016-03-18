@@ -3,22 +3,15 @@
     .module('app')
     .controller('MyTableController', MyTableController);
 
-  function MyTableController() {
+  MyTableController.$inject = ['getTable','tablesService'];
+
+  function MyTableController(getTable, tablesService) {
     var vm = this;
-    vm.business = {};
-    vm.business.name = undefined;
-    vm.business.categories = undefined;
-    vm.business.address = undefined;
 
-    vm.datetime = undefined;
-    vm.people = {};
-    vm.people.max = undefined;
-    vm.people.min = undefined;
-
-    // obtain the business name, address, categories and save them
-
-    // get the categories from the service
-    // for each one create a list of the first index of each
-    // save in a comma seperated string called vm.business.categories
+    vm.dateTime = getTable.dateTime;
+    vm.location = getTable.restaurantAddress;
+    vm.max = getTable.max;
+    vm.name = getTable.restaurantName;
+    vm.users = getTable.users;
   }
 })();
