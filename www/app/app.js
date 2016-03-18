@@ -17,10 +17,13 @@
         controllerAs: 'vm'
       })
       .state('tables', {
-        url: '/tables',
+        url: '/tables/:yelpId',
         templateUrl: 'app/tables/tables.html',
         controller: 'TablesController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          getAllEvents: getAllEvents
+        }        
       })
       .state('search', {
         url: '/search',
@@ -48,6 +51,10 @@
       });
 
     $urlRouterProvider.otherwise('/main');
+
+    function getAllEvents(tablesService, $stateParams) {
+      return tablesService.getAllEvents($stateParams.yelpId);
+    }    
   }
 
   function runBlock($ionicPlatform) {

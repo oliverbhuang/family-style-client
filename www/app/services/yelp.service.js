@@ -16,15 +16,14 @@
       return $http.get('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
         .then(yelpData)
         .catch(yelpFailed);
-    }
+    
+      function yelpData(response) {
+        return response.data.businesses;
+      }
 
-    function yelpData(response) {
-      return response.businesses;
+      function yelpFailed(error) {
+        console.error(error.data);
+      }
     }
-
-    function yelpFailed(error) {
-      console.error(error.data);
-    }
-
   }
 })();

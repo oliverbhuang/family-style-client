@@ -19,12 +19,8 @@
     <div>
       <div ng-repeat="rest in vm.restResults">
         <h3>{{rest.name}}</h3>
-        <span ng-repeat="cat in rest.categories">
-          <a ng-href="http://www.yelp.com/search?find_desc={{rest.name}}&find_loc={{rest.location.city}},{{rest.location.state_code}}&start=0&cflt={{cat[0]}}">{{cat[0]}}</a>
-        </span>
         <p>{{rest.location.address[0]}}, {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}</p>
-        <a class="button icon-left ion-ios7-telephone button-calm button-outline" ng-href="tel: {{rest.display_phone}}">{{rest.display_phone}}</a>
-        <button class="button button-block button-assertive" ng-click="vm.tablePage()">
+        <button class="button button-block button-assertive" ng-click="vm.tablePage(rest)">
           Table Options
         </button>
       </div>
