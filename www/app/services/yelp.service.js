@@ -3,9 +3,9 @@
     .module('app')
     .factory('yelpService', yelpService);
 
-  yelpService.$inject = ['$http', '$state'];
+  yelpService.$inject = ['$http'];
 
-  function yelpService($http, $state) {
+  function yelpService($http) {
     var service = {
       yelpSearch: yelpSearch
     };
