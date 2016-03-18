@@ -4,14 +4,17 @@
     <ion-list>
       <ion-item ng-repeat="outing in vm.outings">
         <div>
-          {{outing.title}}
+          <h1>{{outing.restaurantName}}</h1>
         </div>
         <div>
-          <div class="col">chat</div>
+          <button ui-sref="myTable({eventId: outing._id})"
+                  class="col button button-block button-assertive">
+            Chat
+          </button>
           <div class="col col-75">
-            <div>{{outing.address}}</div>
-            <div>{{outing.date}}</div>
-            <div>{{outing.peopleCount}}</div>
+            <div>{{outing.restaurantAddress}}</div>
+            <div>{{outing.dateTime}}</div>
+            <div>{{outing.users.length}} {{outing.users.length === 1 ? 'person' : 'people'}} going</div>
           </div>
         </div>
       </ion-item>

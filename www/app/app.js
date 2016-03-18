@@ -41,7 +41,7 @@
         controllerAs: 'vm'
       })
       .state('myTable', {
-        url: '/myTable',
+        url: '/myTable/:eventId',
         templateUrl: 'app/myTable/myTable.html',
         controller: 'MyTableController',
         controllerAs: 'vm'
