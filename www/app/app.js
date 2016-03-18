@@ -32,7 +32,10 @@
         url: '/outings',
         templateUrl: 'app/outings/outings.html',
         controller: 'OutingsController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          getUserEvents: getUserEvents
+        }
       })
       .state('create', {
         url: '/create',
@@ -48,6 +51,10 @@
       });
 
     $urlRouterProvider.otherwise('/main');
+
+    function getUserEvents(usersService) {
+      return usersService.getUserEvents();
+    }
   }
 
   function runBlock($ionicPlatform) {

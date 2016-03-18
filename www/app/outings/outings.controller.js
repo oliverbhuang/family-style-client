@@ -3,18 +3,10 @@
     .module('app')
     .controller('OutingsController', OutingsController);
 
-  OutingsController.$inject = ['usersService'];
+  OutingsController.$inject = ['getUserEvents'];
 
-  function OutingsController(usersService) {
+  function OutingsController(getUserEvents) {
     var vm = this;
-
-    activate();
-
-    function activate() {
-      return usersService.getUserEvents()
-        .then(function (events) {
-          vm.outings = events;
-        });
-    }
+    vm.outings = getUserEvents;
   }
 })();
