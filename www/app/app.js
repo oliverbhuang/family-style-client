@@ -52,9 +52,7 @@
         controller: 'MyTableController',
         controllerAs: 'vm',
         resolve: {
-          getTable: function(tablesService, $stateParams) {
-            return tablesService.getTableData($stateParams.eventId);
-          }
+          getTable: getTable
         }
       });
 
@@ -66,6 +64,10 @@
 
     function getUserEvents(usersService) {
       return usersService.getUserEvents();
+    }
+
+    function getTable(tablesService, $stateParams) {
+      return tablesService.getTableData($stateParams.eventId);
     }
   }
 
