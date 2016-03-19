@@ -9,18 +9,24 @@
     var vm = this;
 
     vm.dateTime = getTable.dateTime;
+    vm.emitButton = emitButton;
+    vm.eventId = getTable._id;
     vm.location = getTable.restaurantAddress;
     vm.max = getTable.max;
     vm.name = getTable.restaurantName;
-    vm.users = getTable.users;
     vm.testButton = testButton;
+    vm.users = getTable.users;
 
     function testButton() {
-      socketService.emit('test');
+      socketService.emit('join', vm.eventId);
     }
 
-    socketService.on('hello World', function (test) {
-      console.log('hello World');
+    function emitButton(message) {
+      socketService.emit('emitMessage', vm.eventId, message);
+    }
+
+    socketService.on('eventjoined', function (message) {
+      console.log(message);
     });
   }
 })();

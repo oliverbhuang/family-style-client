@@ -25,7 +25,11 @@
       </ul>
     </div>
     <div>
-      <button ng-click="vm.testButton()">Testing</button>
+      <button ng-click="vm.testButton()">Join</button>
+    </div>
+    <div>
+      <input ng-model="vm.message">
+      <button ng-click="vm.emitButton(vm.message)">emit</button>
     </div>
   </ion-content>
 </ion-view>
