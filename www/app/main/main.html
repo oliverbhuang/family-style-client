@@ -5,13 +5,15 @@
       Experience a restaurant's full menu in one visit.
     </p>
     <hr/>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="text" placeholder="Name" ng-model="vm.username">
-      </label>
-      <button class="button button-block button-assertive" ng-click="vm.signin(vm.username)">
-        Sign In
-      </button>
-    </div>
+    <form name="form" class="list list-inset">
+      <input type="text"
+        class="item item-input"
+        placeholder="Username"
+        ng-model="vm.username">
+      <input type="submit"
+        class="button button-block button-assertive"
+        ng-click="vm.signin(vm.username)"
+        value="Sign In">
+    </form>
   </ion-content>
 </ion-view>
