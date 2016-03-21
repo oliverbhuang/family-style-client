@@ -66,6 +66,9 @@
       .catch(getTableFailed);
 
       function getTableComplete(response) {
+        response.data.users = response.data.users.map(function(user) {
+          return user.username;
+        });
         return response.data;
       }
 

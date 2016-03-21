@@ -9,6 +9,7 @@
     var service = {
       signin: signin,
       getUserId: getUserId,
+      getUsername: getUsername,
       getUserEvents: getUserEvents
     };
 
@@ -21,6 +22,7 @@
 
       function signinComplete(response) {
         $window.localStorage['userid'] = response.data._id;
+        $window.localStorage['username'] = response.data.username;
         $state.go('search');
       }
 
@@ -31,6 +33,10 @@
 
     function getUserId() {
       return $window.localStorage['userid'];
+    }
+
+    function getUsername() {
+      return $window.localStorage['username'];
     }
 
     function getUserEvents() {

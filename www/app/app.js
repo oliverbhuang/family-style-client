@@ -3,7 +3,8 @@
 
   angular
     .module('app', [
-      'ionic'
+      'ionic',
+      'btford.socket-io'
     ])
     .config(configBlock)
     .run(runBlock);
