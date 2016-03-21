@@ -25,7 +25,7 @@
 
       function createTableCompleted(response) {
         var eventId = response.data;
-        $state.go('myTable', {eventId: eventId});
+        $state.go('tabs.myTable', {eventId: eventId});
       }
 
       function createTableFailed(error) {
@@ -35,7 +35,7 @@
 
     function toTablePage(restaurantObj) {
       setRestaurant(restaurantObj);
-      $state.go('tables', {yelpId: restaurantObj.id});
+      $state.go('tabs.tables', {yelpId: restaurantObj.id});
     }
 
     function setRestaurant(restaurantObj) {

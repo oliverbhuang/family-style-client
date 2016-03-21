@@ -22,8 +22,7 @@
 
       function signinComplete(response) {
         $window.localStorage['userid'] = response.data._id;
-        $window.localStorage['username'] = response.data.username;
-        $state.go('search');
+        $state.go('tabs.search');
       }
 
       function signinFailed(error) {
