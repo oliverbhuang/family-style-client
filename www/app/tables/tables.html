@@ -1,4 +1,8 @@
-<ion-view>
+<ion-view view-title="Tables">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
   <ion-content class="padding">
     <h2>{{vm.title}}</h2>
     <p ng-repeat="line in vm.address">
@@ -6,8 +10,8 @@
     </p>
     <div class="list list-inset">
       <div class="item" ng-repeat="table in vm.tables">
-        <div>{{table.dateTime}} 
-             ({{table.users.length}})
+        <div>{{table.dateTime | date:"medium"}}
+             ({{table.users.length}} going)
              <a ui-sref="myTable"></a>
         </div>
       <div>
