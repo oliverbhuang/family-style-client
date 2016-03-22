@@ -11,7 +11,7 @@
 
     // display address has to be with a "_" in the middle
     // jscs:disable
-    vm.address = restaurant.location.display_address; // jshint ignore:line
+    vm.location = restaurant.location; 
     // jscs:enable
     vm.tables = getAllEvents;
     vm.title = restaurant.name;
