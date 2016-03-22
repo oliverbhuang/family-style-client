@@ -32,4 +32,14 @@
 
 .item.no-errors {
   border-bottom: 3px solid green;
+
+.tabs-positive > .tabs {
+  background-color: #ef473a;
+  border: #ef473a;
+  border-top: none;
+}
+
+.bar.bar-positive {
+  background-color: #ef473a;
+  border: #ef473a;
 }

@@ -14,7 +14,8 @@
       getRestaurant: getRestaurant,
       getAllEvents: getAllEvents,
       createTable: createTable,
-      getTableData: getTableData
+      getTableData: getTableData,
+      putUserAndEvent: putUserAndEvent
     };
     return service;
 
@@ -25,7 +26,7 @@
 
       function createTableCompleted(response) {
         var eventId = response.data;
-        $state.go('myTable', {eventId: eventId});
+        $state.go('tabs.myTable', {eventId: eventId});
       }
 
       function createTableFailed(error) {
@@ -35,7 +36,7 @@
 
     function toTablePage(restaurantObj) {
       setRestaurant(restaurantObj);
-      $state.go('tables', {yelpId: restaurantObj.id});
+      $state.go('tabs.tables', {yelpId: restaurantObj.id});
     }
 
     function setRestaurant(restaurantObj) {
@@ -75,7 +76,21 @@
       function getTableFailed(error) {
         console.error(error.data);
       }
+    }
 
+    function putUserAndEvent(userId, eventId) {
+      return $http.put('http://localhost:8080/events/' + eventId, {userId: userId})
+      .then(putUserAndEventCompleted)
+      .catch(putUserAndEventFailed);
+
+      function putUserAndEventCompleted(response) {
+        var eventId = response.data;
+        $state.go('tabs.myTable', {eventId: eventId});
+      }
+
+      function putUserAndEventFailed(error) {
+        console.error(error);
+      }
     }
   }
 })();

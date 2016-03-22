@@ -1,13 +1,9 @@
 <ion-view view-title="My Table">
-  <ion-nav-bar>
-    <ion-nav-back-button>
-    </ion-nav-back-button>
-  </ion-nav-bar>
   <ion-content class="padding text-center">
     <div>
       <div>
         <h3>{{vm.name}}</h3>
-        <p>{{vm.location.address}},
+        <p>{{vm.location.address[0]}},
           {{vm.location.city}},
           {{vm.location.state_code}},
           {{vm.location.postal_code}}
@@ -17,7 +13,7 @@
     <hr/>
     <div class="list list-inset">
       <p>
-        There are {{vm.users.length}} people are going to this event on {{vm.dateTime}}.
+        There are {{vm.users.length}} people are going to this event on {{vm.dateTime | date:"medium"}}.
       </p>
       <p>
         The creator has requested a minimum of {{vm.people.min}} people or it will be canceled.

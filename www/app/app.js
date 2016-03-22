@@ -18,43 +18,68 @@
         controller: 'MainController',
         controllerAs: 'vm'
       })
-      .state('tables', {
-        url: '/tables/:yelpId',
-        templateUrl: 'app/tables/tables.html',
-        controller: 'TablesController',
-        controllerAs: 'vm',
-        resolve: {
-          getAllEvents: getAllEvents
-        }
+      .state('tabs', {
+        url: '/tab',
+        abstract: true,
+        templateUrl: 'app/common/tabs.html'
       })
-      .state('search', {
+      .state('tabs.search', {
         url: '/search',
-        templateUrl: 'app/search/search.html',
-        controller: 'SearchController',
-        controllerAs: 'vm'
-      })
-      .state('outings', {
-        url: '/outings',
-        templateUrl: 'app/outings/outings.html',
-        controller: 'OutingsController',
-        controllerAs: 'vm',
-        resolve: {
-          getUserEvents: getUserEvents
+        views: {
+          'search-tab': {
+            templateUrl: 'app/search/search.html',
+            controller: 'SearchController',
+            controllerAs: 'vm'
+          }
         }
       })
-      .state('create', {
-        url: '/tables/create',
-        templateUrl: 'app/create/create.html',
-        controller: 'CreateController',
-        controllerAs: 'vm'
+      .state('tabs.outings', {
+        url: '/outings',
+        views: {
+          'outings-tab': {
+            templateUrl: 'app/outings/outings.html',
+            controller: 'OutingsController',
+            controllerAs: 'vm',
+            resolve: {
+              getUserEvents: getUserEvents
+            }
+          }
+        }
       })
-      .state('myTable', {
+      .state('tabs.tables', {
+        url: 'tables/:yelpId',
+        views: {
+          'search-tab': {
+            templateUrl: 'app/tables/tables.html',
+            controller: 'TablesController',
+            controllerAs: 'vm',
+            resolve: {
+              getAllEvents: getAllEvents
+            }
+          }
+        }
+      })
+      .state('tabs.create', {
+        url: '/tables/create',
+        views: {
+          'search-tab': {
+            templateUrl: 'app/create/create.html',
+            controller: 'CreateController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('tabs.myTable', {
         url: '/myTable/:eventId',
-        templateUrl: 'app/myTable/myTable.html',
-        controller: 'MyTableController',
-        controllerAs: 'vm',
-        resolve: {
-          getTable: getTable
+        views: {
+          'search-tab': {
+            templateUrl: 'app/myTable/myTable.html',
+            controller: 'MyTableController',
+            controllerAs: 'vm',
+            resolve: {
+              getTable: getTable
+            }
+          }
         }
       });
 
@@ -73,8 +98,11 @@
     }
   }
 
-  function runBlock($ionicPlatform) {
+  function runBlock($ionicPlatform, $state) {
     $ionicPlatform.ready(function() {
+      // If userid exists route them to search instead of login
+      localStorage.userid ? $state.go('tabs.search') : $state.go('main'); // jshint ignore:line
+
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
