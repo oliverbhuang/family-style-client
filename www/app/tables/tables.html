@@ -1,8 +1,10 @@
 <ion-view view-title="Tables">
   <ion-content class="padding">
     <h2>{{vm.title}}</h2>
-    <p ng-repeat="line in vm.address">
-      {{line}}
+    <p>{{vm.location.address[0]}} </br>
+        {{vm.location.city}},
+        {{vm.location.state_code}},
+        {{vm.location.postal_code}}
     </p>
     <div class="list list-inset">
       <div class="item" ng-repeat="table in vm.tables">
