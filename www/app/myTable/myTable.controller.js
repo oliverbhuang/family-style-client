@@ -29,6 +29,7 @@
         username: usersService.getUsername(),
         message: message
       });
+      vm.message = '';
     }
 
     socketService.on('updateUsers', function (updatedUsers) {

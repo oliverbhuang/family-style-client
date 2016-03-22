@@ -5,14 +5,52 @@
     <div ng-repeat="line in vm.address">
       {{line}}
     </div>
-    <div class="list list-inset">
-    <form ng-submit="vm.submit()">
-      <input type="date" name="date" ng-model="vm.date">
-      <input type="time" name="time" ng-model="vm.time">
-      <input type="number" name="max" placeholder="Max People" ng-model="vm.max">
-      <input type="number" name="min" placeholder="Min People" ng-model="vm.min">
-      <input type="submit" class="button button-block button-assertive" value="Create Table">
+
+    <form name="form" novalidate ng-submit="vm.submit()">
+
+      <div class="list list-inset">
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors' : form.$submitted && form.date.$invalid, 'no-errors' : form.$submitted && form.date.$valid}">
+          <input name="date" type="date" ng-model="vm.date" required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.date.$error" ng-messages="form.date.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
+        </div>
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors' : form.$submitted && form.time.$invalid, 'no-errors' : form.$submitted && form.time.$valid}">
+          <input name="time" type="time" ng-model="vm.time" required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.time.$error" ng-messages="form.time.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
+        </div>
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors' : form.$submitted && form.min.$invalid, 'no-errors' : form.$submitted && form.min.$valid}">
+          <input name="min" type="number" placeholder="Min People" ng-model="vm.min" min="1" required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.min.$error" ng-messages="form.min.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
+        </div>
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors' : form.$submitted && form.max.$invalid, 'no-errors' : form.$submitted && form.max.$valid}">
+          <input name="max" type="number" placeholder="Max People" ng-model="vm.max" min="1" required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.max.$error" ng-messages="form.max.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
+        </div>
+
+        <input type="submit" class="button button-block button-assertive" value="Create Table">
+
+      </div>
+
     </form>
-    </div>
+
   </ion-content>
 </ion-view>

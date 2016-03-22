@@ -5,13 +5,31 @@
       Experience a restaurant's full menu in one visit.
     </p>
     <hr/>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="text" placeholder="Name" ng-model="vm.username">
-      </label>
-      <button class="button button-block button-assertive" ng-click="vm.signin(vm.username)">
-        Sign In
-      </button>
-    </div>
+    <form name="form" novalidate ng-submit="vm.signin(vm.username)">
+
+      <div class="list list-inset">
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors' : form.$submitted && form.$invalid, 'no-errors' : form.$submitted && form.$valid}">
+            <input type="text"
+              name="username"
+              ng-model="vm.username"
+              ng-minlength="5"
+              ng-maxlength="20"
+              placeholder="Username"
+              required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.$error" ng-messages="form.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
+        </div>
+
+      </div>
+
+      <input type="submit"
+        class="button button-block button-assertive"
+        value="Sign In">
+
+    </form>
   </ion-content>
 </ion-view>
