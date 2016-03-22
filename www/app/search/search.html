@@ -1,22 +1,39 @@
 <ion-view>
   <ion-content class="padding text-center">
     <h2>Search Restaurants</h2>
-      <form name="form" class="list list-inset">
-        <div class="item item-input">
+
+    <form name="form" novalidate ng-submit="form.$valid && vm.restSearch(vm.restaurant, vm.location, form)">
+
+      <div class="list list-inset">
+
+        <label class="item item-input">
           <input type="text"
             placeholder="Restaurant name, category"
             ng-model="vm.restaurant">
-        </div>
-        <div class="item item-input">
+        </label>
+
+        <br>
+
+        <label class="item item-input"
+          ng-class="{ 'has-errors': form.$submitted && form.$invalid, 'no-errors': form.$submitted && form.$valid }">
           <input type="text"
+            ng-model="vm.location"
             placeholder="Location"
-            ng-model="vm.location">
+            required>
+        </label>
+
+        <div class="error-container" ng-show="form.$submitted && form.$error" ng-messages="form.$error">
+          <ng-messages-include src="config/error-list.html"></ng-messages-include>
         </div>
-        <input type="submit"
-          class="button button-block button-assertive"
-          ng-click="vm.restSearch(vm.restaurant, vm.location)"
-          value="Search">
-      </form>
+
+      </div>
+
+      <input type="submit"
+        class="button button-block button-assertive"
+        value="Search">
+
+    </form>
+
     <div>
       <div ng-repeat="rest in vm.restResults">
         <h3>{{rest.name}}</h3>

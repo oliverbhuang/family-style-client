@@ -4,7 +4,8 @@
   angular
     .module('app', [
       'ionic',
-      'btford.socket-io'
+      'btford.socket-io',
+      'ngMessages'
     ])
     .config(configBlock)
     .run(runBlock);
