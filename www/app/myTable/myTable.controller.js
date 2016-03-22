@@ -3,9 +3,10 @@
     .module('app')
     .controller('MyTableController', MyTableController);
 
-  MyTableController.$inject = ['getTable','tablesService', 'socketService', 'usersService'];
+  MyTableController.$inject = ['$filter', 'getTable','tablesService',
+  'socketService', 'usersService'];
 
-  function MyTableController(getTable, tablesService, socketService, usersService) {
+  function MyTableController($filter, getTable, tablesService, socketService, usersService) {
     var vm = this;
 
     vm.chat = [];
@@ -20,9 +21,6 @@
     activate();
 
     function activate() {
-      if (vm.users.indexOf(usersService.getUsername())) {
-        vm.users.push(usersService.getUsername());
-      }
       socketService.emit('join', {eventId: vm.eventId, users: vm.users});
     }
 
