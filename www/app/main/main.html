@@ -6,10 +6,11 @@
     </p>
     <hr/>
     <form name="form" class="list list-inset">
-      <input type="text"
-        class="item item-input"
-        placeholder="Username"
-        ng-model="vm.username">
+      <div class="item item-input">
+        <input type="text"
+          placeholder="Username"
+          ng-model="vm.username">
+      </div>
       <input type="submit"
         class="button button-block button-assertive"
         ng-click="vm.signin(vm.username)"

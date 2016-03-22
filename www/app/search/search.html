@@ -1,21 +1,22 @@
 <ion-view>
   <ion-content class="padding text-center">
     <h2>Search Restaurants</h2>
-    <div class="list list-inset">
-      <form>
-        <input type="text"
-          name="restaurant"
-          placeholder="Restaurant name, category"
-          ng-model="vm.restaurant">
-        <input type="text"
-          name="location"
-          placeholder="Location"
-          ng-model="vm.location">
+      <form name="form" class="list list-inset">
+        <div class="item item-input">
+          <input type="text"
+            placeholder="Restaurant name, category"
+            ng-model="vm.restaurant">
+        </div>
+        <div class="item item-input">
+          <input type="text"
+            placeholder="Location"
+            ng-model="vm.location">
+        </div>
+        <input type="submit"
+          class="button button-block button-assertive"
+          ng-click="vm.restSearch(vm.restaurant, vm.location)"
+          value="Search">
       </form>
-      <button class="button button-block button-assertive" ng-click="vm.restSearch(vm.restaurant, vm.location)">
-        Search
-      </button>
-    </div>
     <div>
       <div ng-repeat="rest in vm.restResults">
         <h3>{{rest.name}}</h3>
