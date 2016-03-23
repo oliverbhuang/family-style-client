@@ -8,6 +8,6 @@
     "angular-socket-io": "^0.7.0",
     "socket.io-client": "^1.4.5",
     "angular-messages": "^1.5.2",
-    "angular-mocks": "1.4.3"
+    "angular-mocks": "^1.5.2"
   }
 }

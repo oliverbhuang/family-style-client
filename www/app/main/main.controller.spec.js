@@ -17,6 +17,7 @@ describe('MainController', function() {
     // instantiate the controller and mocks for every test
     inject(function ($controller, $q, _$rootScope_) {
       deferredLogin = $q.defer();
+
       // mock usersService
       usersServiceMock = {
         signin: jasmine.createSpy('signin spy').and.returnValue(deferredLogin.promise)
