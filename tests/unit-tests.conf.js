@@ -60,7 +60,6 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     plugins:[
-      'karma-mocha',
       'karma-jasmine',
       'karma-phantomjs-launcher'
      ],
