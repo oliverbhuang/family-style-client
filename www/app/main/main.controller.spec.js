@@ -8,7 +8,7 @@ describe('MainController', function () {
     inject(function ($controller) {
       usersServiceMock = {
         signin: function () {
-          return 'hello';
+          return true;
         }
       };
       sinon.spy(usersServiceMock, 'signin');

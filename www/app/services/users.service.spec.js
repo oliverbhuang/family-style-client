@@ -8,9 +8,9 @@ describe('Service', function () {
       usersService = _usersService_;
       $httpBackend = _$httpBackend_;
     });
-    //   app/   /  .html
+
+    // whitelist html files within /app directory
     var regex = /app\/([a-zA-Z]+)\/([a-zA-Z]+)\.html/;
-    var html = 'app/myTable/myTable.html';
     $httpBackend.whenGET(regex).respond(200,'');
     $httpBackend.flush();
   });
