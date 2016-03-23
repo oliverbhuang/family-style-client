@@ -32,6 +32,7 @@
 
 .item.no-errors {
   border-bottom: 3px solid green;
+}
 
 .tabs-positive > .tabs {
   background-color: #ef473a;
