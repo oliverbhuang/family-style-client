@@ -1,43 +1,27 @@
 /* jshint -W117, -W030 */
-describe('MainController', function() {
-  var controller,
-      deferredLogin,
-      usersServiceMock;
+describe('MainController', function () {
+  var usersService, controller;
 
   beforeEach(function () {
-    // Load the App Module to access controllers
     module('app');
 
-    //stop caching for HTML load error
-    module(function ($provide, $urlRouterProvider) {
-      $provide.value('$ionicTemplateCache', function () {});
-      $urlRouterProvider.deferIntercept();
-    });
-
-    // instantiate the controller and mocks for every test
-    inject(function ($controller, $q, _$rootScope_) {
-      deferredLogin = $q.defer();
-
-      // mock usersService
+    inject(function ($controller) {
       usersServiceMock = {
-        signin: jasmine.createSpy('signin spy').and.returnValue(deferredLogin.promise)
+        signin: function () {
+          return true;
+        }
       };
-
-      // instantiate LoginController
+      sinon.spy(usersServiceMock, 'signin');
       controller = $controller('MainController', {
         'usersService': usersServiceMock
       });
-
-      // call doLogin on the controller for every test
-      $rootScope = _$rootScope_;
-      controller.username = 'test1';
-      controller.signin(controller.username);
     });
   });
-
-  describe('#signin', function() {
-    it('should call signin on usersService', function() {
-      expect(usersServiceMock.signin).toHaveBeenCalledWith('test1');
+  describe('#signin', function () {
+    it('should call a signin on usersService', function () {
+      controller.signin('person');
+      expect(usersServiceMock.signin.calledOnce).to.equal(true);
+      controller.signin.restore();
     });
   });
 });
