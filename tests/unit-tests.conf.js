@@ -15,7 +15,8 @@ module.exports = function(config) {
       '../www/lib/ionic/js/ionic.bundle.js',
       '../www/lib/socket.io-client/socket.io.js',
       '../www/lib/angular-socket-io/socket.js',
-      '../bower_components/angular-mocks/angular-mocks.js',
+      '../www/lib/angular-mocks/angular-mocks.js',
+      '../www/lib/angular-messages/angular-messages.js',
       '../www/app/**/*.js'
     ],
 
@@ -57,8 +58,9 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-    
+
     plugins:[
+      'karma-mocha',
       'karma-jasmine',
       'karma-phantomjs-launcher'
      ],

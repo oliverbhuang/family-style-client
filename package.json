@@ -6,6 +6,7 @@
     "lint": "jshint www && jscs www"
   },
   "dependencies": {
+    "angular-mocks": "^1.5.2",
     "angular-socket-io": "^0.7.0",
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
