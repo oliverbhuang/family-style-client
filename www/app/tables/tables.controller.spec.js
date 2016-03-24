@@ -33,34 +33,24 @@ describe('TablesController', function () {
     });
   });
 
-  describe('#controller sepcific', function () {
-    it('should have tables, location, title, and userId property', function () {
-      expect(controller.tables).to.exist;
-      expect(controller.location).to.exist;
-      expect(controller.title).to.exist;
-      expect(controller.userId).to.exist;
-    });
-
-    it('should have ', function () {
-      expect(controller.tables).to.exist;
-    });
+  it('should have tables, location, title, and userId property', function () {
+    expect(controller.tables).to.exist;
+    expect(controller.location).to.exist;
+    expect(controller.title).to.exist;
+    expect(controller.userId).to.exist;
   });
 
-  describe('#tablesService specific', function () {
-    it('should call getRestaurant on tablesService', function () {
-      expect(tablesServiceMock.getRestaurant.calledOnce).to.equal(true);
-    });
-
-    it('should call putUserAndEvent on tablesService', function () {
-      controller.updateInfo(1, 1);
-      expect(tablesServiceMock.putUserAndEvent.calledOnce).to.equal(true);
-      controller.updateInfo.restore();
-    });
+  it('should call getRestaurant on tablesService', function () {
+    expect(tablesServiceMock.getRestaurant.calledOnce).to.equal(true);
   });
 
-  describe('#usersService specific', function () {
-    it('should call getUserId on tablesService', function () {
-      expect(usersServiceMock.getUserId.calledOnce).to.equal(true);
-    });
+  it('should call putUserAndEvent on tablesService', function () {
+    controller.updateInfo(1, 1);
+    expect(tablesServiceMock.putUserAndEvent.calledOnce).to.equal(true);
+    controller.updateInfo.restore();
+  });
+
+  it('should call getUserId on tablesService', function () {
+    expect(usersServiceMock.getUserId.calledOnce).to.equal(true);
   });
 });
