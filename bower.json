@@ -9,5 +9,8 @@
     "socket.io-client": "^1.4.5",
     "angular-messages": "^1.5.2",
     "angular-mocks": "1.4.3"
-  }
+  },
+  "resolutions": {
+    "angular": "1.4.x"
+    }
 }
