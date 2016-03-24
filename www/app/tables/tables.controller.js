@@ -10,10 +10,7 @@
     var vm = this;
     var restaurant = tablesService.getRestaurant();
 
-    // display address has to be with a "_" in the middle
-    // jscs:disable
-    vm.location = restaurant.location; 
-    // jscs:enable
+    vm.location = restaurant.location;
     vm.tables = getAllEvents;
     vm.title = restaurant.name;
     vm.userId = usersService.getUserId();
