@@ -1,6 +1,6 @@
 /* jshint -W117, -W030 */
 describe('MainController', function () {
-  var usersService, controller;
+  var controller;
 
   beforeEach(function () {
     module('app');
