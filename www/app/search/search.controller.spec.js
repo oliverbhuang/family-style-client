@@ -31,16 +31,14 @@ describe('SearchController', function () {
     });
   });
 
-  describe('#SearchController', function () {
-    it('should call yelpSearch on yelpService', function () {
-      controller.restSearch('rest', 'loc', 'form');
-      expect(yelpServiceMock.yelpSearch.calledOnce).to.equal(true);
-    });
+  it('should call yelpSearch on yelpService', function () {
+    controller.restSearch('rest', 'loc', 'form');
+    expect(yelpServiceMock.yelpSearch.calledOnce).to.equal(true);
+  });
 
-    it('should call toTablePage on tablesService', function () {
-      controller.tablePage('id');
-      expect(tablesServiceMock.toTablePage.calledOnce).to.equal(true);
-      controller.tablePage.restore();
-    });
+  it('should call toTablePage on tablesService', function () {
+    controller.tablePage('id');
+    expect(tablesServiceMock.toTablePage.calledOnce).to.equal(true);
+    controller.tablePage.restore();
   });
 });
