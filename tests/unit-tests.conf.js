@@ -23,6 +23,8 @@ module.exports = function(config) {
       '../www/lib/angular-socket-io/socket.js',
       '../www/lib/angular-mocks/angular-mocks.js',
       '../www/lib/angular-messages/angular-messages.js',
+      '../www/lib/openfb/openfb.js',
+      '../www/lib/openfb/ngopenfb.js',
       '../www/app/**/*.js'
     ],
 

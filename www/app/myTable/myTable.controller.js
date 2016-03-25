@@ -26,7 +26,7 @@
 
     function emitButton(message) {
       socketService.emit('emitMessage', vm.eventId, {
-        username: usersService.getUsername(),
+        firstName: usersService.getFirstName(),
         message: message
       });
       vm.message = '';

@@ -7,7 +7,6 @@
 
   function MainController(usersService) {
     var vm = this;
-    vm.username = '';
     vm.fbLogin = usersService.signin;
   }
 })();
