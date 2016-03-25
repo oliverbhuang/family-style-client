@@ -68,7 +68,7 @@
 
       function getTableComplete(response) {
         response.data.users = response.data.users.map(function(user) {
-          return user.username;
+          return user.firstName;
         });
         return response.data;
       }
