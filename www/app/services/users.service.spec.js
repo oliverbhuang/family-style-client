@@ -4,6 +4,32 @@ describe('Service', function () {
   beforeEach(function () {
     module('app');
 
+    module(function($provide) {
+      $provide.factory('ngFB', function($q) {
+
+        return {
+          init: function () {
+            return true;
+          },
+          login: function () {
+            var response = {
+              status: 'connected'
+            };
+
+            return $q.when(response);
+          },
+          api: function () {
+            var user = {
+              id: 1,
+              name: 'test1'
+            };
+
+            return $q.when(user);
+          }
+        };
+      });
+    });
+
     inject(function (_usersService_, _$httpBackend_, _$state_, _$window_) {
       usersService = _usersService_;
       $state = _$state_;
@@ -22,18 +48,18 @@ describe('Service', function () {
       expect(usersService.signin).to.be.a('function');
     });
 
-    it('should set variables userid and username in local storage', function () {
+    it('should set variables userid and firstName in local storage', function () {
       var url = 'http://localhost:8080/users/';
 
       $httpBackend.expectPOST(url).respond(200, {
         _id: 1,
-        username: 'person'
+        firstName: 'test1'
       });
 
-      usersService.signin('person')
+      usersService.signin()
       .then(function (response) {
         expect($window.localStorage['userid']).to.equal('1');
-        expect($window.localStorage['username']).to.equal('person');
+        expect($window.localStorage['firstName']).to.equal('test1');
       });
 
       $httpBackend.flush();
@@ -44,7 +70,7 @@ describe('Service', function () {
 
       $httpBackend.expectPOST(url).respond(200, {
         _id: 1,
-        username: 'person'
+        firstName: 'person'
       });
 
       usersService.signin('person')
@@ -67,14 +93,14 @@ describe('Service', function () {
     });
   });
 
-  describe('#getUsername', function () {
+  describe('#getFirstName', function () {
     it('should be a function', function () {
       expect(usersService.getUserId).to.be.a('function');
     });
 
-    it('should return the username value in the local storage', function () {
-      $window.localStorage['username'] = 'person';
-      expect(usersService.getUsername()).to.equal('person');
+    it('should return the firstName value in the local storage', function () {
+      $window.localStorage['firstName'] = 'person';
+      expect(usersService.getFirstName()).to.equal('person');
     });
   });
 
@@ -94,7 +120,7 @@ describe('Service', function () {
 
       $httpBackend.expectGET(url).respond(200, {
         _id: 10,
-        username: 'person',
+        firstName: 'person',
         events: ['event1', 'event2', 'event3']
       });
 
@@ -109,7 +135,7 @@ describe('Service', function () {
       var url = 'http://localhost:8080/users/1';
       $httpBackend.expectGET(url).respond(200, {
         _id: 1,
-        username: 'person',
+        firstName: 'person',
         events: ['event1', 'event2', 'event3']
       });
       usersService.getUserEvents()

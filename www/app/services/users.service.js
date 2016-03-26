@@ -3,30 +3,50 @@
     .module('app')
     .factory('usersService', usersService);
 
-  usersService.$inject = ['$http', '$window', '$state'];
+  usersService.$inject = ['$http', '$window', '$state', 'ngFB', '$ionicPopup'];
 
-  function usersService($http, $window, $state) {
+  function usersService($http, $window, $state, ngFB, $ionicPopup) {
     var service = {
       signin: signin,
       getUserId: getUserId,
-      getUsername: getUsername,
+      getFirstName: getFirstName,
       getUserEvents: getUserEvents
     };
 
     return service;
 
-    function signin (username) {
-      return $http.post('http://localhost:8080/users/', {username: username})
+    function signin () {
+      return ngFB.login({scope: 'email, publish_actions'})
+      .then(function fbResponse (response) {
+        if (response.status !== 'connected') {
+          throw new Error ('Facebook login failed');
+        }
+        return ngFB.api({path: '/me', params: {fields: 'id, name'}});
+      })
+      .then(function fbUserLookup(user) {
+        var firstName = user.name.split(' ')[0];
+
+        return $http.post('http://localhost:8080/users/', {
+          fbId: user.id,
+          fullName: user.name,
+          firstName: firstName
+        });
+      })
       .then(signinComplete)
       .catch(signinFailed);
 
       function signinComplete(response) {
         $window.localStorage['userid'] = response.data._id;
-        $window.localStorage['username'] = response.data.username;
+        $window.localStorage['firstName'] = response.data.firstName;
         return $state.go('tabs.search');
       }
 
       function signinFailed(error) {
+        $ionicPopup.alert({
+          title: 'Couldn\'t log in',
+          template: error.message
+        });
+
         console.error(error.data);
       }
     }
@@ -35,8 +55,8 @@
       return $window.localStorage['userid'];
     }
 
-    function getUsername() {
-      return $window.localStorage['username'];
+    function getFirstName() {
+      return $window.localStorage['firstName'];
     }
 
     function getUserEvents() {

@@ -11,17 +11,37 @@ describe('MainController', function () {
           return true;
         }
       };
+
+      ngFBMock = {
+        login: function () {
+          var response = {
+            status: 'connected'
+          };
+
+          return response;
+        },
+        api: function () {
+          var user = {
+            id: 1,
+            name: 'test1'
+          };
+
+          return user;
+        }
+      };
+
       sinon.spy(usersServiceMock, 'signin');
       controller = $controller('MainController', {
-        'usersService': usersServiceMock
+        'usersService': usersServiceMock,
+        'ngFB': ngFBMock
       });
     });
   });
-  describe('#signin', function () {
+  describe('#fbLogin', function () {
     it('should call a signin on usersService', function () {
-      controller.signin('person');
+      controller.fbLogin();
       expect(usersServiceMock.signin.calledOnce).to.equal(true);
-      controller.signin.restore();
+      controller.fbLogin.restore();
     });
   });
 });
