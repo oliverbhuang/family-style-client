@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <title>Family-Style</title>
     <!-- IF using Sass (run gulp sass first) -->
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -15,6 +16,7 @@
     <script src="lib/angular-messages/angular-messages.js"></script>
     <script src="lib/openfb/openfb.js"></script>
     <script src="lib/openfb/ngopenfb.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -22,6 +24,7 @@
     <!-- your app's js -->
     <script src="app/app.js"></script>
     <script src="app/services/tables.service.js"></script>
+    <script src="app/services/nearby.service.js"></script>
     <script src="app/services/users.service.js"></script>
     <script src="app/services/yelp.service.js"></script>
     <script src="app/services/socket.service.js"></script>
@@ -30,10 +33,12 @@
     <script src="app/common/tabs.controller.js"></script>
     <script src="app/search/search.controller.js"></script>
     <script src="app/outings/outings.controller.js"></script>
+    <script src="app/nearby/nearby.controller.js"></script>
     <script src="app/create/create.controller.js"></script>
     <script src="app/tables/tables.controller.js"></script>
     <script src="app/myTable/myTable.controller.js"></script>
     <script src="app/leaderBoard/leaderBoard.controller.js"></script>
+    <script src="https://maps-api-ssl.google.com/maps/api/js?libraries=places"></script>
   </head>
   <body ng-app="app">
     <ion-nav-bar class="bar-positive">

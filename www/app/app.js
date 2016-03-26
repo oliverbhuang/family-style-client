@@ -6,7 +6,8 @@
       'ionic',
       'btford.socket-io',
       'ngMessages',
-      'ngOpenFB'
+      'ngOpenFB',
+      'ngCordova'
     ])
     .config(configBlock)
     .run(runBlock);
@@ -101,6 +102,20 @@
             }
           }
         }
+      })
+      .state('tabs.nearby', {
+        cache: false,
+        url: '/nearby',
+        views: {
+          'nearby-tab': {
+            templateUrl: 'app/nearby/nearby.html',
+            controller: 'NearbyController',
+            controllerAs: 'vm',
+            resolve: {
+              getLocNearby: getLocNearby
+            }
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/main');
@@ -119,6 +134,10 @@
 
     function getLeaderBoard(leaderBoardService) {
       return leaderBoardService.getLeaderBoard();
+    }
+
+    function getLocNearby(nearbyService) {
+      return nearbyService.getLocNearby();
     }
   }
 
