@@ -22,6 +22,7 @@
 
     function activate() {
       socketService.emit('join', {eventId: vm.eventId, users: vm.users});
+      socketService.emit('loadMessages', vm.eventId);
     }
 
     function emitButton(message) {
@@ -31,6 +32,10 @@
       });
       vm.message = '';
     }
+
+    socketService.on('loadMessages', function (messages) {
+      vm.chat = messages;
+    });
 
     socketService.on('updateUsers', function (updatedUsers) {
       vm.users = updatedUsers;
