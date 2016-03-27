@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-content class="padding">
+    <h2>Leader Board</h2>
+    <ion-list>
+      <ion-item ng-repeat="restaurant in vm.restaurants">
+        <div>
+          <h1>{{restaurant.restaurantName}}</h1>
+        </div>
+        <div>
+          <div class="col col-75">
+            <div>
+              {{restaurant.restaurantAddress}},
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

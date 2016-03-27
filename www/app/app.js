@@ -82,6 +82,19 @@
             }
           }
         }
+      })
+      .state('tabs.leaderboard', {
+        url: '/leaderboard',
+        views: {
+          'leaderboard-tab': {
+            templateUrl: 'app/leaderBoard/leaderBoard.html',
+            controller: 'LeaderBoardController',
+            controllerAs: 'vm',
+            resolve: {
+              getLeaderBoard: getLeaderBoard
+            }
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/main');
@@ -96,6 +109,10 @@
 
     function getTable(tablesService, $stateParams) {
       return tablesService.getTableData($stateParams.eventId);
+    }
+
+    function getLeaderBoard(leaderBoardService) {
+      return leaderBoardService.getLeaderBoard();
     }
   }
 
