@@ -24,6 +24,7 @@
         vm.loadRipple = false;
       });
     };
+
     vm.tablePage = tablesService.toTablePage;
   }
 })();

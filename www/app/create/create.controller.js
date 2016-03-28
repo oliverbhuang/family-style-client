@@ -13,6 +13,7 @@
     // display address has to be with a "_" in the middle
     // jscs:disable
     vm.address = currentRestaurant.location.display_address; // jshint ignore:line
+    vm.phone = currentRestaurant.display_phone; // jshint ignore:line
     // jscs:enable
     vm.name = currentRestaurant.name;
 
@@ -26,6 +27,7 @@
         dateTime: vm.date,
         min: vm.min,
         max: vm.max,
+        phone: vm.phone,
         restaurantName: currentRestaurant.name,
         restaurantAddress: currentRestaurant.location,
         userId: usersService.getUserId()
