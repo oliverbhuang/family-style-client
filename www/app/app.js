@@ -22,7 +22,9 @@
       .state('tabs', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'app/common/tabs.html'
+        templateUrl: 'app/common/tabs.html',
+        controller: 'TabsController',
+        controllerAs: 'vm'
       })
       .state('tabs.search', {
         url: '/search',
