@@ -8,6 +8,7 @@
   function usersService($http, $window, $state, ngFB, $ionicPopup) {
     var service = {
       signin: signin,
+      signout: signout,
       getUserId: getUserId,
       getFirstName: getFirstName,
       getUserEvents: getUserEvents
@@ -49,6 +50,12 @@
 
         console.error(error.data);
       }
+    }
+
+    function signout () {
+      $window.localStorage.removeItem('userid');
+      $window.localStorage.removeItem('firstName');
+      $state.go('main');
     }
 
     function getUserId() {
