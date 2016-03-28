@@ -15,7 +15,8 @@
       getAllEvents: getAllEvents,
       createTable: createTable,
       getTableData: getTableData,
-      putUserAndEvent: putUserAndEvent
+      putUserAndEvent: putUserAndEvent,
+      openMaps: openMaps
     };
     return service;
 
@@ -91,6 +92,16 @@
       function putUserAndEventFailed(error) {
         console.error(error);
       }
+    }
+
+    function openMaps (address) {
+      var geoString = '';
+
+      if (ionic.Platform.isIOS()) {
+        geoString = 'maps://?q=' + address;
+      }
+
+      window.open(geoString, '_system');
     }
   }
 })();
