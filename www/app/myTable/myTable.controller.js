@@ -17,6 +17,7 @@
     vm.max = getTable.max;
     vm.name = getTable.restaurantName;
     vm.users = getTable.users;
+    vm.openMaps = tablesService.openMaps;
 
     activate();
 
