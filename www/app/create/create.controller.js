@@ -25,7 +25,6 @@
       var createObject = {
         yelpId: currentRestaurant.id,
         dateTime: vm.date,
-        min: vm.min,
         max: vm.max,
         phone: vm.phone,
         restaurantName: currentRestaurant.name,
