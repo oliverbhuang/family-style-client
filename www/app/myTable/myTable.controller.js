@@ -34,6 +34,8 @@
       vm.message = '';
     }
 
+    socketService.removeAllListeners();
+
     socketService.on('loadMessages', function (messages) {
       vm.chat = messages;
     });
