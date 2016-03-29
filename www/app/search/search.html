@@ -36,7 +36,7 @@
 
     <div>
       <h3 ng-show="!vm.restResults.length && vm.hasSearched">No restaurants found</h3>
-      <img src="../../img/ripple.gif" ng-show="vm.loadRipple"/>
+      <img src="img/ripple.gif" ng-show="vm.loadRipple"/>
       <div ng-repeat="rest in vm.restResults">
         <h3>{{rest.name}}</h3>
         <p>{{rest.location.address[0]}}, {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}</p>
