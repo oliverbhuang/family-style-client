@@ -21,6 +21,7 @@
 
     function createTableSubmit () {
       vm.date.setHours(vm.time.getHours());
+      vm.date.setMinutes(vm.time.getMinutes());
 
       var createObject = {
         yelpId: currentRestaurant.id,

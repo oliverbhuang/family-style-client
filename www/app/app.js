@@ -37,6 +37,7 @@
         }
       })
       .state('tabs.outings', {
+        cache: false,
         url: '/outings',
         views: {
           'outings-tab': {
@@ -50,6 +51,7 @@
         }
       })
       .state('tabs.tables', {
+        cache: false,
         url: 'tables/:yelpId',
         views: {
           'search-tab': {
@@ -63,6 +65,7 @@
         }
       })
       .state('tabs.create', {
+        cache: false,
         url: '/tables/create',
         views: {
           'search-tab': {
@@ -73,6 +76,7 @@
         }
       })
       .state('tabs.myTable', {
+        cache: false,
         url: '/myTable/:eventId',
         views: {
           'search-tab': {
