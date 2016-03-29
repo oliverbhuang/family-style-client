@@ -8,7 +8,7 @@
   function OutingsController(getUserEvents, usersService, tablesService) {
     var vm = this;
     vm.outings = getUserEvents;
-    vm.removeElement = tablesService.removeRestaurant;
+    //vm.removeElement = tablesService.removeRestaurant;
     vm.userId = usersService.getUserId();
     vm.removeUserFromEvent = tablesService.removeUserFromEvent;
   }
