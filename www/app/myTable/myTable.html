@@ -3,7 +3,12 @@
     <div>
       <div>
         <h3>{{vm.name}}</h3>
-        <p>{{vm.location.address[0]}},
+        <p class="clickable-address" ng-click="vm.openMaps(
+          vm.location.address[0] + ',' +
+          vm.location.city + ', ' +
+          vm.location.state_code + ', ' +
+          vm.location.postal_code)">
+          {{vm.location.address[0]}},>{{vm.location.address[0]}},
           {{vm.location.city}},
           {{vm.location.state_code}},
           {{vm.location.postal_code}}
