@@ -29,15 +29,6 @@
         </div>
 
         <label class="item item-input"
-          ng-class="{ 'has-errors' : form.$submitted && form.min.$invalid, 'no-errors' : form.$submitted && form.min.$valid}">
-          <input name="min" type="number" placeholder="Min People" ng-model="vm.min" min="1" required>
-        </label>
-
-        <div class="error-container" ng-show="form.$submitted && form.min.$error" ng-messages="form.min.$error">
-          <ng-messages-include src="config/error-list.html"></ng-messages-include>
-        </div>
-
-        <label class="item item-input"
           ng-class="{ 'has-errors' : form.$submitted && form.max.$invalid, 'no-errors' : form.$submitted && form.max.$valid}">
           <input name="max" type="number" placeholder="Max People" ng-model="vm.max" min="1" required>
         </label>
