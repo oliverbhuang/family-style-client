@@ -6,7 +6,15 @@
         <div>
           <h1>{{outing.restaurantName}}</h1>
         </div>
-        <div class="row">
+        <div>
+          <button ui-sref="myTable({eventId: outing._id})"
+            class="col button button-block button-assertive">
+            Chat
+          </button>
+          <button ng-click="vm.removeUserFromEvent(vm.userId, outing._id); vm.removeElement(vm.outings, $index)"
+            class="col button button-block button-assertive">
+            Remove
+          </button>          
           <div class="col col-75">
             <div>
               {{outing.restaurantAddress.address[0]}}<br/>
