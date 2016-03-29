@@ -10,7 +10,15 @@
       <div class="item" ng-repeat="table in vm.tables">
         <div>{{table.dateTime | date:"medium"}}
              ({{table.users.length}} going)
-             <button class="button button-small button-assertive" ng-click="vm.updateInfo(vm.userId, table._id)">Join</button>
+            <button class="button button-small"
+              ng-class="{'button-assertive': table.users.length < table.max,
+                'button-dark': table.users.length >= table.max}"
+              ng-click="vm.updateInfo(vm.userId, table._id)">Join</button>
+        </div>
+
+        <div class="error-container ng-hide" ng-show="table.users.length >= table.max" ng-messages="maxusers">
+          <i class="ion-information-circled"></i>
+          Room is full
         </div>
       </div>
     <div>
