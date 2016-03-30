@@ -3,9 +3,9 @@
     .module('app')
     .factory('tablesService', tablesService);
 
-  tablesService.$inject = ['$http', '$state'];
+  tablesService.$inject = ['$http', '$state', 'REST_URL'];
 
-  function tablesService($http, $state) {
+  function tablesService($http, $state, REST_URL) {
     var restaurant;
 
     var service = {
@@ -22,7 +22,7 @@
     return service;
 
     function createTable(tableInfo) {
-      return $http.post('http://localhost:8080/events', tableInfo)
+      return $http.post(REST_URL + 'events', tableInfo)
       .then(createTableCompleted)
       .catch(createTableFailed);
 
@@ -51,7 +51,7 @@
     }
 
     function getAllEvents(yelpId) {
-      return $http.get('http://localhost:8080/events?yelpId=' + yelpId)
+      return $http.get(REST_URL + 'events?yelpId=' + yelpId)
       .then(getAllEventsComplete)
       .catch(getAllEventsFailed);
 
@@ -65,7 +65,7 @@
     }
 
     function getTableData(eventId) {
-      return $http.get('http://localhost:8080/events/' + eventId)
+      return $http.get(REST_URL + 'events/' + eventId)
       .then(getTableComplete)
       .catch(getTableFailed);
 
@@ -83,7 +83,7 @@
     }
 
     function putUserAndEvent(userId, eventId) {
-      return $http.put('http://localhost:8080/events/' + eventId, {userId: userId})
+      return $http.put(REST_URL + 'events/' + eventId, {userId: userId})
       .then(putUserAndEventCompleted)
       .catch(putUserAndEventFailed);
 
@@ -108,7 +108,7 @@
     }
 
     function removeUserFromEvent(userId, eventId, restaurantsArray, index) {
-      return $http.put('http://localhost:8080/events/remove/' + eventId, {userId: userId})
+      return $http.put(REST_URL + 'events/remove/' + eventId, {userId: userId})
       .then(removeRestaurantSuccess(restaurantsArray, index))
       .catch(removeRestaurantFailed);
 

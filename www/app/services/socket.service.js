@@ -3,10 +3,10 @@
     .module('app')
     .factory('socketService', socketService);
 
-  socketService.$inject = ['socketFactory'];
+  socketService.$inject = ['socketFactory', 'REST_URL'];
 
-  function socketService(socketFactory) {
-    var socket = io.connect('http://localhost:8080/table'); // jshint ignore:line
+  function socketService(socketFactory, REST_URL) {
+    var socket = io.connect(REST_URL + 'table'); // jshint ignore:line
     var options = {ioSocket: socket};
     return socketFactory(options);
   }

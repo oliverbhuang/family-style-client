@@ -1,6 +1,6 @@
 /* jshint -W117, -W030 */
 describe('Service', function () {
-  var usersService, $httpBackend, authRequestHandler, $state, $window;
+  var usersService, $httpBackend, authRequestHandler, $state, $window, REST_URL;
   beforeEach(function () {
     module('app');
 
@@ -31,7 +31,8 @@ describe('Service', function () {
       });
     });
 
-    inject(function (_usersService_, _$httpBackend_, _$state_, _$window_) {
+    inject(function (_usersService_, _$httpBackend_, _$state_, _$window_, _REST_URL_) {
+      REST_URL = _REST_URL_;
       usersService = _usersService_;
       $state = _$state_;
       $httpBackend = _$httpBackend_;
@@ -50,7 +51,7 @@ describe('Service', function () {
     });
 
     it('should set variables userid and firstName in local storage', function () {
-      var url = 'http://localhost:8080/users/';
+      var url = REST_URL + 'users/';
 
       $httpBackend.expectPOST(url).respond(200, {
         _id: 1,
@@ -69,7 +70,7 @@ describe('Service', function () {
     });
 
     it('should change the state url to /search', function () {
-      var url = 'http://localhost:8080/users/';
+      var url = REST_URL + 'users/';
 
       $httpBackend.expectPOST(url).respond(200, {
         _id: 1,
@@ -119,7 +120,7 @@ describe('Service', function () {
 
     it('should send a GET request with id in local storage', function () {
       $window.localStorage['userid'] = 10;
-      var url = 'http://localhost:8080/users/10';
+      var url = REST_URL + 'users/10';
 
       $httpBackend.expectGET(url).respond(200, {
         _id: 10,
@@ -135,7 +136,7 @@ describe('Service', function () {
 
     it('should return a list of events', function () {
       $window.localStorage['userid'] = 1;
-      var url = 'http://localhost:8080/users/1';
+      var url = REST_URL + 'users/1';
       $httpBackend.expectGET(url).respond(200, {
         _id: 1,
         firstName: 'person',
