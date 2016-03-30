@@ -5,14 +5,9 @@
         <div>
           <h1>{{outing.restaurantName}}</h1>
         </div>
-        <div>
-          <button ui-sref="myTable({eventId: outing._id})"
+        <div class="row">
+          <button class="outings-remove button icon ion-close" ng-click="vm.removeUserFromEvent(vm.userId, outing._id, vm.outings, $index)"
             class="col button button-block button-assertive">
-            Chat
-          </button>
-          <button ng-click="vm.removeUserFromEvent(vm.userId, outing._id, vm.outings, $index)"
-            class="col button button-block button-assertive">
-            Remove
           </button>          
           <div class="col col-75">
             <div>

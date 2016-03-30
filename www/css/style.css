@@ -54,3 +54,10 @@
     float:right; /* shift to right for alignment*/
     width:80% /* set a width, you can use max-width to limit this as well*/
 }
+
+.outings-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FFF;
+}
