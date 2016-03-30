@@ -109,16 +109,16 @@
       return $http.put('http://localhost:8080/events/remove/' + eventId, {userId: userId})
       .then(removeRestaurantSuccess(restaurantsArray, index))
       .catch(removeRestaurantFailed);
-    }
 
-    // removes restaurant from DOM
-    function removeRestaurantSuccess(restaurantsArray, index) {
-      restaurantsArray.splice(index, 1);
-      return restaurantsArray;
-    }
+      // removes restaurant from DOM
+      function removeRestaurantSuccess(restaurantsArray, index) {
+        restaurantsArray.splice(index, 1);
+        return restaurantsArray;
+      }
 
-    function removeRestaurantFailed(error) {
-      console.log(error);
+      function removeRestaurantFailed(error) {
+        console.log(error);
+      }
     }
   }
 })();

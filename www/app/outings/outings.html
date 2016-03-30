@@ -2,7 +2,7 @@
   <ion-content class="padding">
     <h2>My Outings</h2>
     <ion-list>
-      <ion-item ng-repeat="outing in vm.outings">
+      <ion-item ng-repeat="outing in vm.outings track by $index">
         <div>
           <h1>{{outing.restaurantName}}</h1>
         </div>
