@@ -136,6 +136,10 @@
     function getLocNearby(nearbyService) {
       return nearbyService.getLocNearby();
     }
+
+    function getUserPicture(usersService) {
+      return usersService.getUserPicture();
+    }
   }
 
   function runBlock($ionicPlatform, $state, ngFB) {

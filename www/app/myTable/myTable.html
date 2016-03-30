@@ -23,7 +23,7 @@
     </div>
     <div>
       <ul ng-repeat="user in vm.users">
-        <li>{{user}}<span ng-show='$index == 0'> (creator)</span></li>
+        <li>{{user.name}}<span ng-show='$index == 0'> (creator)</span></li>
       </ul>
     </div>
     <div>
@@ -33,6 +33,7 @@
       <h1> Chatroom </h1>
       <div ng-repeat="message in vm.chat">
         {{message.firstName}}: {{message.message}}
+        <img data-ng-src="{{message.pictureUrl}}">
       </div>
     </div>
   </ion-content>

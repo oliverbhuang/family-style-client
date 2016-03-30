@@ -16,8 +16,8 @@
     vm.location = getTable.restaurantAddress;
     vm.max = getTable.max;
     vm.name = getTable.restaurantName;
-    vm.users = getTable.users;
     vm.openMaps = tablesService.openMaps;
+    vm.users = getTable.users;
 
     activate();
 
@@ -29,6 +29,7 @@
     function emitButton(message) {
       socketService.emit('emitMessage', vm.eventId, {
         firstName: usersService.getFirstName(),
+        pictureUrl: usersService.getUserPicture(),
         message: message
       });
       vm.message = '';

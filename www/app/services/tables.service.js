@@ -71,7 +71,7 @@
 
       function getTableComplete(response) {
         response.data.users = response.data.users.map(function(user) {
-          return user.firstName;
+          return {id: user._id, name: user.firstName, pictureUrl: user.imageUrl};
         });
         return response.data;
       }

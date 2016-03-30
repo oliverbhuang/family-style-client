@@ -11,7 +11,8 @@
       signout: signout,
       getUserId: getUserId,
       getFirstName: getFirstName,
-      getUserEvents: getUserEvents
+      getUserEvents: getUserEvents,
+      getUserPicture: getUserPicture
     };
 
     return service;
@@ -22,15 +23,15 @@
         if (response.status !== 'connected') {
           throw new Error ('Facebook login failed');
         }
-        return ngFB.api({path: '/me', params: {fields: 'id, name'}});
+        return ngFB.api({path: '/me', params: {fields: 'id, name, picture'}});
       })
       .then(function fbUserLookup(user) {
         var firstName = user.name.split(' ')[0];
-
         return $http.post('http://localhost:8080/users/', {
           fbId: user.id,
           fullName: user.name,
-          firstName: firstName
+          firstName: firstName,
+          pictureUrl: user.picture.data.url
         });
       })
       .then(signinComplete)
@@ -39,6 +40,7 @@
       function signinComplete(response) {
         $window.localStorage['userid'] = response.data._id;
         $window.localStorage['firstName'] = response.data.firstName;
+        $window.localStorage['profilePictureUrl'] = response.data.imageUrl;
         return $state.go('tabs.search');
       }
 
@@ -64,6 +66,10 @@
 
     function getFirstName() {
       return $window.localStorage['firstName'];
+    }
+
+    function getUserPicture() {
+      return $window.localStorage['profilePictureUrl'];
     }
 
     function getUserEvents() {
