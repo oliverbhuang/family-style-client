@@ -53,7 +53,7 @@
       })
       .state('tabs.tables', {
         cache: false,
-        url: 'tables/:yelpId',
+        url: '/tables/:yelpId',
         views: {
           'search-tab': {
             templateUrl: 'app/tables/tables.html',
@@ -110,10 +110,7 @@
           'nearby-tab': {
             templateUrl: 'app/nearby/nearby.html',
             controller: 'NearbyController',
-            controllerAs: 'vm',
-            resolve: {
-              getLocNearby: getLocNearby
-            }
+            controllerAs: 'vm'
           }
         }
       });

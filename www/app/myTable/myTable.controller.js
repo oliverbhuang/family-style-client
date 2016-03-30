@@ -22,7 +22,6 @@
     activate();
 
     function activate() {
-      console.log(vm.users);
       socketService.emit('join', {eventId: vm.eventId, users: vm.users});
       socketService.emit('loadMessages', vm.eventId);
     }

@@ -21,13 +21,11 @@
     return service;
 
     function createTable(tableInfo) {
-      console.log(tableInfo);
       return $http.post('http://localhost:8080/events', tableInfo)
       .then(createTableCompleted)
       .catch(createTableFailed);
 
       function createTableCompleted(response) {
-        console.log(response.data);
         var eventId = response.data;
         return $state.go('tabs.myTable', {eventId: eventId});
       }
