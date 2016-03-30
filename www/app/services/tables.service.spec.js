@@ -1,10 +1,11 @@
 /* jshint -W117, -W030, indent:2 */
 describe('tablesService', function() {
-  var tablesService, $httpBackend, $state;
+  var tablesService, $httpBackend, $state , REST_URL;
   beforeEach(function() {
     module('app');
 
-    inject(function(_tablesService_, _$httpBackend_, _$state_) {
+    inject(function(_tablesService_, _$httpBackend_, _$state_, _REST_URL_) {
+      REST_URL = _REST_URL_;
       tablesService = _tablesService_;
       $httpBackend = _$httpBackend_;
       $state = _$state_;
@@ -47,7 +48,7 @@ describe('tablesService', function() {
       };
       var array = [obj1, obj2];
       var yelpId = 'punjab-kabab-house-san-francisco';
-      var url = 'http://localhost:8080/events?yelpId=' + yelpId;
+      var url = REST_URL + 'events?yelpId=' + yelpId;
       $httpBackend.expectGET(url).respond(200, array);
       tablesService.getAllEvents(yelpId)
       .then(function (response) {
@@ -65,7 +66,7 @@ describe('tablesService', function() {
   describe('getTableData', function () {
     it('should send a GET request with eventId', function () {
       var eventId = '56ec78ac97ade5b7963d4343';
-      var url = 'http://localhost:8080/events/' + eventId;
+      var url = REST_URL + 'events/' + eventId;
       var obj1 = {
         _id: '56ec78ac97ade5b7963d4343',
         yelpId: 'punjab-kabab-house-san-francisco',
