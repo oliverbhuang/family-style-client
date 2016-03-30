@@ -1,0 +1,20 @@
+<ion-view view-title="Nearby Family-Style Tables">
+  <ion-content class="padding">
+    <div>
+      <div class="in-line" ng-repeat="rest in vm.nearbyEvents">
+        <div class="rest-results">
+          <h3>{{rest.restaurantName}}</h3>
+          <p>{{rest.restaurantAddress.address[0]}}, {{rest.restaurantAddress.city}}, {{rest.restaurantAddress.state_code}}, {{rest.restaurantAddress.postal_code}}</p>
+          <p>There {{rest.users.length === 1 ? 'is' : 'are'}} {{rest.users.length}} {{rest.users.length === 1 ? 'person' : 'people'}} going to this event on {{rest.dateTime | date:"medium"}}</p>
+        </div>
+
+        <div text-right>
+          <button class="button button-small button-assertive text-right" ng-click="vm.tablePage(rest)">
+            Join Table
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

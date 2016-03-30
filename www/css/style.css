@@ -44,3 +44,13 @@
   background-color: #ef473a;
   border: #ef473a;
 }
+.in-line {
+  display:inline-flex;
+}
+.rest-results {
+  float:left;
+}
+.text-right {
+    float:right; /* shift to right for alignment*/
+    width:80% /* set a width, you can use max-width to limit this as well*/
+}

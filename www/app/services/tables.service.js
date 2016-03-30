@@ -32,7 +32,8 @@
       }
 
       function createTableFailed(error) {
-        console.error(error);
+
+        console.error('Create Table Failed', error);
       }
     }
 
