@@ -16,7 +16,8 @@
       createTable: createTable,
       getTableData: getTableData,
       putUserAndEvent: putUserAndEvent,
-      openMaps: openMaps
+      openMaps: openMaps,
+      removeUserFromEvent: removeUserFromEvent
     };
     return service;
 
@@ -102,6 +103,22 @@
       }
 
       window.open(geoString, '_system');
+    }
+
+    function removeUserFromEvent(userId, eventId, restaurantsArray, index) {
+      return $http.put('http://localhost:8080/events/remove/' + eventId, {userId: userId})
+      .then(removeRestaurantSuccess(restaurantsArray, index))
+      .catch(removeRestaurantFailed);
+
+      // removes restaurant from DOM
+      function removeRestaurantSuccess(restaurantsArray, index) {
+        restaurantsArray.splice(index, 1);
+        return restaurantsArray;
+      }
+
+      function removeRestaurantFailed(error) {
+        console.log(error);
+      }
     }
   }
 })();
