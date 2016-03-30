@@ -25,6 +25,7 @@ module.exports = function(config) {
       '../www/lib/angular-messages/angular-messages.js',
       '../www/lib/openfb/openfb.js',
       '../www/lib/openfb/ngopenfb.js',
+      '../www/lib/ngCordova/dist/ng-cordova.min.js',
       '../www/app/**/*.js'
     ],
 
