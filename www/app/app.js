@@ -9,6 +9,7 @@
       'ngOpenFB',
       'ngCordova'
     ])
+    .constant('REST_URL', 'http://localhost:8080/')
     .config(configBlock)
     .run(runBlock);
 

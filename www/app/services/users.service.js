@@ -3,9 +3,9 @@
     .module('app')
     .factory('usersService', usersService);
 
-  usersService.$inject = ['$http', '$window', '$state', 'ngFB', '$ionicPopup'];
+  usersService.$inject = ['$http', '$window', '$state', 'ngFB', '$ionicPopup', 'REST_URL'];
 
-  function usersService($http, $window, $state, ngFB, $ionicPopup) {
+  function usersService($http, $window, $state, ngFB, $ionicPopup, REST_URL) {
     var service = {
       signin: signin,
       signout: signout,
@@ -27,7 +27,7 @@
       })
       .then(function fbUserLookup(user) {
         var firstName = user.name.split(' ')[0];
-        return $http.post('http://localhost:8080/users/', {
+        return $http.post(REST_URL + 'users/', {
           fbId: user.id,
           fullName: user.name,
           firstName: firstName,
@@ -73,7 +73,7 @@
     }
 
     function getUserEvents() {
-      return $http.get('http://localhost:8080/users/' + $window.localStorage['userid'])
+      return $http.get(REST_URL + 'users/' + $window.localStorage['userid'])
       .then(getUserComplete)
       .catch(getUserFailed);
 

@@ -3,9 +3,9 @@
     .module('app')
     .factory('leaderBoardService', leaderBoardService);
 
-  leaderBoardService.$inject = ['$http'];
+  leaderBoardService.$inject = ['$http', 'REST_URL'];
 
-  function leaderBoardService($http) {
+  function leaderBoardService($http, REST_URL) {
     var service = {
       getLeaderBoard: getLeaderBoard
     };
@@ -13,7 +13,7 @@
     return service;
 
     function getLeaderBoard() {
-      return $http.get('http://localhost:8080/leaderBoard/')
+      return $http.get(REST_URL + 'leaderBoard/')
       .then(getLeaderBoardComplete)
       .catch(getLeaderBoardFailed);
 

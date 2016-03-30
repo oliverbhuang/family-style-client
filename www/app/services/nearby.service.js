@@ -3,9 +3,9 @@
     .module('app')
     .factory('nearbyService', nearbyService);
 
-  nearbyService.$inject = ['$http', '$state', '$cordovaGeolocation', '$ionicPlatform'];
+  nearbyService.$inject = ['$http', '$state', '$cordovaGeolocation', '$ionicPlatform', 'REST_URL'];
 
-  function nearbyService($http, $state, $cordovaGeolocation, $ionicPlatform) {
+  function nearbyService($http, $state, $cordovaGeolocation, $ionicPlatform, REST_URL) {
 
     var service = {
       getLocNearby: getLocNearby
@@ -39,7 +39,7 @@
       var lat = lnglat.lat;
       var lng = lnglat.lng;
 
-      return $http.get('http://localhost:8080/nearby/?lng=' + lng + '&lat=' + lat)
+      return $http.get(REST_URL + 'nearby/?lng=' + lng + '&lat=' + lat)
       .then(getNearbyComplete)
       .catch(getNearbyFailed);
     }

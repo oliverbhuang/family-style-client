@@ -3,9 +3,9 @@
     .module('app')
     .factory('yelpService', yelpService);
 
-  yelpService.$inject = ['$http'];
+  yelpService.$inject = ['$http', 'REST_URL'];
 
-  function yelpService($http) {
+  function yelpService($http, REST_URL) {
     var service = {
       yelpSearch: yelpSearch
     };
@@ -13,7 +13,7 @@
     return service;
 
     function yelpSearch(rest, loc) {
-      return $http.get('http://localhost:8080/api/yelp?term=' + rest + '&location=' + loc)
+      return $http.get(REST_URL + 'api/yelp?term=' + rest + '&location=' + loc)
         .then(yelpData)
         .catch(yelpFailed);
 
