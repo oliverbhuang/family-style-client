@@ -91,6 +91,7 @@
         }
       })
       .state('tabs.leaderboard', {
+        cache: false,
         url: '/leaderboard',
         views: {
           'leaderboard-tab': {

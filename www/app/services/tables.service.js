@@ -78,6 +78,7 @@
 
       function getTableFailed(error) {
         console.error(error.data);
+        $state.go('tabs.search');
       }
     }
 
