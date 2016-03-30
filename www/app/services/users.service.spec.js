@@ -21,7 +21,8 @@ describe('Service', function () {
           api: function () {
             var user = {
               id: 1,
-              name: 'test1'
+              name: 'test1',
+              picture: {data: {url: 'someUrl'}}
             };
 
             return $q.when(user);
@@ -53,13 +54,15 @@ describe('Service', function () {
 
       $httpBackend.expectPOST(url).respond(200, {
         _id: 1,
-        firstName: 'test1'
+        firstName: 'test1',
+        imageUrl: 'someUrl'
       });
 
       usersService.signin()
       .then(function (response) {
         expect($window.localStorage['userid']).to.equal('1');
         expect($window.localStorage['firstName']).to.equal('test1');
+        expect($window.localStorage['profilePictureUrl']).to.equal('someUrl');
       });
 
       $httpBackend.flush();

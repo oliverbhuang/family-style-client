@@ -135,6 +135,7 @@
 
     function getLocNearby(nearbyService) {
       return nearbyService.getLocNearby();
+    }
 
     function getUserPicture(usersService) {
       return usersService.getUserPicture();
