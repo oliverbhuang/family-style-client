@@ -1,0 +1,25 @@
+.outings-item {
+  margin: 5px 5px 0;
+  display: flex;
+  white-space: normal;
+}
+
+.phone {
+    margin-top: 5px;
+}
+
+.outing-item {
+  padding-top: 4px;
+  padding-bottom: 4px
+}
+
+.outings-remove button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FFF;
+}
+
+.item-content {
+  width: 100%;
+}

@@ -1,0 +1,28 @@
+.in-line {
+  display:inline-flex;
+}
+.rest-results {
+  float:left;
+}
+.text-right {
+    float:right; /* shift to right for alignment*/
+    width:80% /* set a width, you can use max-width to limit this as well*/
+}
+
+.outings-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FFF;
+}
+
+.rest-item {
+  margin: 5px 5px 0;
+  padding: 5px;
+  display: flex;
+}
+
+
+.rest-item .col-25 {
+  margin-right: 10px;
+}
