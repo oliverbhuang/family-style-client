@@ -1,0 +1,26 @@
+.rest-item {
+  margin: 5px 5px 0;
+  padding: 5px;
+  display: flex;
+}
+
+.rest-item img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.rest-item .col-25 {
+  margin-right: 10px;
+}
+
+.top-address {
+  margin-bottom: -5px;
+}
+
+.grey-background {
+  background-color: #EEEEEE;
+}
+
+.white-background {
+  background-color: #FFFFFF
+}
