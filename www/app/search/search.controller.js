@@ -18,8 +18,6 @@
       .then(function(data) {
         vm.restResults = data;
         form.$submitted = false;
-        vm.restaurant = '';
-        vm.location = '';
         vm.hasSearched = true;
         vm.loadRipple = false;
       });

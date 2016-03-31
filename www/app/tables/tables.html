@@ -1,28 +1,44 @@
 <ion-view view-title="Tables">
-  <ion-content class="padding">
-    <h2>{{vm.title}}</h2>
-    <p>{{vm.location.address[0]}} </br>
-        {{vm.location.city}},
-        {{vm.location.state_code}},
-        {{vm.location.postal_code}}
-    </p>
+  <ion-content class="padding grey-background">
+    <div class="rest-item">
+      <div class="col-25">
+        <img src="{{vm.rest.image_url}}"/>
+      </div>
+      <div class="col-65">
+        <div style="margin-top: 5px;">
+          <strong>{{vm.title}}</strong>
+        </div>
+        <div class="top-address">
+          {{vm.location.address[0]}}
+        </div>
+        <div>
+          {{vm.location.city}}, {{vm.location.state_code}}, {{vm.location.postal_code}}
+        </div>
+      </div>
+    </div>
     <div class="list list-inset">
-      <div class="item" ng-repeat="table in vm.tables">
-        <div>{{table.dateTime | date:"medium"}}
-             ({{table.users.length}} going)
+      <div class="item tables-item" ng-repeat="table in vm.tables">
+        <div class="display-flex">
+          <div class="col-75">
+            {{table.dateTime | date:"MMM d, y h:mm a"}} ({{table.users.length}} going)
+          </div>
+          <div class="col-25">
             <button class="button button-small"
               ng-class="{'button-assertive': table.users.length < table.max,
                 'button-dark': table.users.length >= table.max}"
-              ng-click="vm.updateInfo(vm.userId, table._id)">Join</button>
-        </div>
-
-        <div class="error-container ng-hide" ng-show="table.users.length >= table.max" ng-messages="maxusers">
-          <i class="ion-information-circled"></i>
-          Room is full
+              ng-click="vm.updateInfo(vm.userId, table._id)">
+              Join
+            </button>
+          </div>
+          <div class="error-container ng-hide" ng-show="table.users.length >= table.max" ng-messages="maxusers">
+            <i class="ion-information-circled"></i>
+            Room is full
+          </div>
         </div>
       </div>
+    </div>
     <div>
-        <a class="button button-small button-assertive" ui-sref="tabs.create">Create your own table</a>
+      <a class="button button-block button-assertive" ui-sref="tabs.create">Create your own table</a>
     </div>
   </ion-content>
 </ion-view>

@@ -24,3 +24,28 @@
 .white-background {
   background-color: #FFFFFF
 }
+
+.tables-item {
+  padding: 0;
+}
+
+.tables-item button {
+  border-radius: 0;
+  margin-left: -10px;
+  padding: 11px 0;
+  width: 100%;
+}
+
+.tables-item .col-75 {
+  font-size: 14px;
+  margin: 15px 0 15px 10px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.join-button {
+  line-height: initial;
+  padding: 15px 0;
+}
