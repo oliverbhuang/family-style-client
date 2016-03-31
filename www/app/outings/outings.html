@@ -1,32 +1,27 @@
 <ion-view title="Outings">
-  <ion-content class="padding">
+  <ion-content class="grey-background">
     <ion-list>
-      <ion-item ng-repeat="outing in vm.outings track by $index">
-        <div>
-          <h1>{{outing.restaurantName}}</h1>
-        </div>
-        <div class="row">
-          <button class="outings-remove button icon ion-close" ng-click="vm.removeUserFromEvent(vm.userId, outing._id, vm.outings, $index)"
-            class="col button button-block button-assertive">
-          </button>          
-          <div class="col col-75">
-            <div>
-              {{outing.restaurantAddress.address[0]}}<br/>
-              {{outing.restaurantAddress.city}},
-              {{outing.restaurantAddress.state_code}},
-              {{outing.restaurantAddress.postal_code}}
-            </div>
-            <div>
-              {{outing.phone}}
-            </div>
-            <div>{{outing.dateTime | date:"medium"}}</div>
-            <div>{{outing.users.length}} {{outing.users.length === 1 ? 'person' : 'people'}} going</div>
+      <ion-item ui-sref="tabs.myTable({eventId: outing._id})" class="outings-item white-background" ng-repeat="outing in vm.outings track by $index">
+        <button class="outings-remove button icon ion-close white-background" ng-click="vm.removeUserFromEvent(vm.userId, outing._id, vm.outings, $index)">
+        </button>
+        <div class="col-75">
+          <div class="restaurant-name">
+            {{outing.restaurantName}}
           </div>
-          <div class="col col-25">
-            <button ui-sref="tabs.myTable({eventId: outing._id})"
-            class="col button button-block button-assertive">
-              Chat
-            </button>
+          <div class="top-address outing-item">
+            {{outing.restaurantAddress.address[0]}},
+            {{outing.restaurantAddress.city}},
+            {{outing.restaurantAddress.state_code}}
+            {{outing.restaurantAddress.postal_code}}
+          </div>
+          <div class="phone outing-item">
+            {{outing.phone}}
+          </div>
+          <div class="outing-item">
+            {{outing.users.length}} {{outing.users.length === 1 ? 'person' : 'people'}} going to this event
+          </div>
+          <div class="date">
+            {{outing.dateTime | date:"MMM d, y h:mm a "}}
           </div>
         </div>
       </ion-item>

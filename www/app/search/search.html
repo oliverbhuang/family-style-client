@@ -34,13 +34,13 @@
         <h2 ng-show="!vm.restResults.length && vm.hasSearched && !vm.loadRipple">No restaurants found</h2>
         <img src="img/ripple.gif" ng-show="vm.loadRipple"/>
       </div>
-      <div ng-click="vm.tablePage(rest)" class="white-background rest-item"ng-repeat="rest in vm.restResults">
+      <div ng-click="vm.tablePage(rest)" class="white-background rest-item" ng-repeat="rest in vm.restResults">
         <div class="col-25">
           <img src="{{rest.image_url}}"/>
         </div>
         <div class="col-65">
-          <div style="margin-top: 5px;">
-            <strong>{{rest.name}}</strong>
+          <div class="restaurant-name">
+            {{rest.name}}
           </div>
           <div class="top-address">
             {{rest.location.address[0]}}

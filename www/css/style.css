@@ -61,3 +61,17 @@
   right: 0;
   background-color: #FFF;
 }
+
+.restaurant-name {
+  margin-top: 5px;
+  font-weight: bold;
+  white-space: normal;
+}
+
+.grey-background {
+  background-color: #EEEEEE;
+}
+
+.white-background {
+  background-color: #FFFFFF
+}

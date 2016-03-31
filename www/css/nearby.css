@@ -1,0 +1,40 @@
+.nearby-item {
+  margin: 5px 5px 0;
+  display: flex;
+}
+
+.nearby-item .col-15 {
+
+}
+
+.top-address {
+  margin-bottom: -5px;
+}
+
+.grey-background {
+  background-color: #EEEEEE;
+}
+
+.white-background {
+  background-color: #FFFFFF
+}
+
+.restaurant-name {
+  margin-top: 5px;
+}
+
+.nearby-item button {
+  border-radius: 0;
+  padding: 11px 0;
+  width: 100%;
+}
+
+.col-55 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 55%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 55%;
+  -ms-flex: 0 0 55%;
+  flex: 0 0 55%;
+  max-width: 55%;
+}

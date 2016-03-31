@@ -1,5 +1,5 @@
 <ion-view view-title="Create Table">
-  <ion-content class="padding text-center">
+  <ion-content class="padding text-center grey-background">
   <!-- Text after angular text is placeholder -->
     <div class="restaurant-name">{{vm.name}}</div>
     <div ng-repeat="line in vm.address">
@@ -8,7 +8,7 @@
 
     <form name="form" novalidate ng-submit="vm.submit()">
 
-      <div class="list list-inset">
+      <div class="white-background">
 
         <label class="item item-input"
           ng-class="{ 'has-errors' : form.$submitted && form.date.$invalid, 'no-errors' : form.$submitted && form.date.$valid}">
