@@ -1,19 +1,25 @@
-<ion-view>
-  <ion-content class="padding">
-    <h2>Popular</h2>
+<ion-view title="Popular">
+  <ion-content class="padding grey-background">
     <ion-list>
-      <ion-item ng-repeat="restaurant in vm.restaurants">
-        <div>
-          <h1>{{restaurant.restaurantName}}</h1>
+      <div ng-click="vm.tablePage(restaurant)" class="white-background rest-item"ng-repeat="restaurant in vm.restaurants">
+        <div class="col-25">
+          <img src="{{restaurant[0].image}}"/>
         </div>
-        <div>
-          <div class="col col-75">
-            <div>
-              {{restaurant.restaurantAddress}},
-            </div>
+        <div class="col-65">
+          <div style="margin-top: 5px;">
+            <strong>{{restaurant[0].restaurantName}}</strong>
+          </div>
+          <div class="top-address">
+            {{restaurant[0].address}}
+          </div>
+          <div>
+            {{restaurant[0].city}}, {{restaurant[0].state_code}} {{rest.location.postal_code}}
           </div>
         </div>
-      </ion-item>
+        <div class="col-10">
+          {{restaurant[1]}}
+        </div>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>
