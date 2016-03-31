@@ -30,7 +30,8 @@
       socketService.emit('emitMessage', vm.eventId, {
         firstName: usersService.getFirstName(),
         pictureUrl: usersService.getUserPicture(),
-        message: message
+        message: message,
+        userid: usersService.getUserId()
       });
       vm.message = '';
     }

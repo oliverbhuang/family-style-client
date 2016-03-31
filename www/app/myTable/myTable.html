@@ -26,15 +26,29 @@
         <li>{{user.name}}<span ng-show='$index == 0'> (creator)</span></li>
       </ul>
     </div>
-    <div>
-      <input ng-model="vm.message">
-      <button ng-click="vm.emitButton(vm.message)">Send message</button>
-    </div>
-      <h1> Chatroom </h1>
-      <div ng-repeat="message in vm.chat">
-        {{message.firstName}}: {{message.message}}
+
+    <h1> Chatroom </h1>
+    <div ng-repeat="message in vm.chat"
+         ng-class="{other: message.userId != myId}"
+         class="messages">
+
+      <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
+        <span>{{ message.message }}</span>
+        <!-- {{message.firstName}}: {{message.message}} -->
         <img data-ng-src="{{message.pictureUrl}}">
       </div>
     </div>
   </ion-content>
+
+  <form name="sendMessageForm" ng-submit="vm.emitButton(vm.message)">
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+        <label class="item-input-wrapper">
+            <input type="text" ng-model="vm.message" placeholder="Send a message..." required></input>
+        </label>
+        <div class="footer-btn-wrap">
+          <button class="button button-icon icon ion-android-send footer-btn" type="submit">
+          </button>
+        </div>
+    </ion-footer-bar>
+  </form>
 </ion-view>
