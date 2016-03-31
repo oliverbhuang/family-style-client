@@ -13,6 +13,7 @@
     vm.location = restaurant.location;
     vm.tables = getAllEvents;
     vm.title = restaurant.name;
+    vm.rest = restaurant;
     vm.userId = usersService.getUserId();
     vm.updateInfo = tablesService.putUserAndEvent;
   }
