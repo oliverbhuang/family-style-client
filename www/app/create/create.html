@@ -1,7 +1,7 @@
 <ion-view view-title="Create Table">
   <ion-content class="padding text-center">
   <!-- Text after angular text is placeholder -->
-    <h2>{{vm.name}}</h2>
+    <div class="restaurant-name">{{vm.name}}</div>
     <div ng-repeat="line in vm.address">
       {{line}}
     </div>
@@ -12,6 +12,7 @@
 
         <label class="item item-input"
           ng-class="{ 'has-errors' : form.$submitted && form.date.$invalid, 'no-errors' : form.$submitted && form.date.$valid}">
+          <span class="input-label">Enter Date</span>
           <input name="date" type="date" ng-model="vm.date" required>
         </label>
 
@@ -21,6 +22,7 @@
 
         <label class="item item-input"
           ng-class="{ 'has-errors' : form.$submitted && form.time.$invalid, 'no-errors' : form.$submitted && form.time.$valid}">
+          <span class="input-label">Enter Time</span>
           <input name="time" type="time" ng-model="vm.time" required>
         </label>
 
@@ -30,7 +32,8 @@
 
         <label class="item item-input"
           ng-class="{ 'has-errors' : form.$submitted && form.max.$invalid, 'no-errors' : form.$submitted && form.max.$valid}">
-          <input name="max" type="number" placeholder="Max People" ng-model="vm.max" min="1" required>
+          <span class="input-label">Max People</span>
+          <input name="max" type="number" ng-model="vm.max" min="1" required>
         </label>
 
         <div class="error-container" ng-show="form.$submitted && form.max.$error" ng-messages="form.max.$error">
