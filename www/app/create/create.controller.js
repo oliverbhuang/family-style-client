@@ -26,6 +26,9 @@
       var createObject = {
         yelpId: currentRestaurant.id,
         dateTime: vm.date,
+        // jscs:disable
+        image: currentRestaurant.image_url, // jshint ignore:line
+        // jscs:enable
         max: vm.max,
         phone: vm.phone,
         restaurantName: currentRestaurant.name,
