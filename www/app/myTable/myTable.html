@@ -18,7 +18,7 @@
     <hr/>
     <div class="list list-inset">
       <p>
-         {{vm.dateTime | date:"medium"}}.
+         {{vm.dateTime | date:"medium"}}
       </p>
     </div>
     <div>
@@ -28,27 +28,38 @@
     </div>
 
     <h1> Chatroom </h1>
-    <div ng-repeat="message in vm.chat"
-         ng-class="{other: message.userId != myId}"
-         class="messages">
+    <div ng-repeat="message in vm.chat">
 
-      <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
-        <span>{{ message.message }}</span>
-        <!-- {{message.firstName}}: {{message.message}} -->
-        <img data-ng-src="{{message.pictureUrl}}">
+      <div ng-if="!vm.isUser(message.userid)" class="message-wrapper-left">
+        <img class="profile-pic left" ng-src="{{message.pictureUrl}}"/>
+        <div class="chat-bubble left">
+          <div class="message">{{message.message}}</div>
+          <div class="message-detail">
+            <span class="bold">{{message.firstName}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="vm.isUser(message.userid)" class="message-wrapper-right">
+        <div class="chat-bubble right">
+          <div class="message">{{message.message}}</div>
+          <div class="message-detail">
+            <span class="bold">{{message.firstName}}</span>
+          </div>
+        </div>
+        <img class="profile-pic right" ng-src="{{message.pictureUrl}}"/>
       </div>
     </div>
   </ion-content>
 
   <form name="sendMessageForm" ng-submit="vm.emitButton(vm.message)">
     <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
-        <label class="item-input-wrapper">
-            <input type="text" ng-model="vm.message" placeholder="Send a message..." required></input>
-        </label>
-        <div class="footer-btn-wrap">
-          <button class="button button-icon icon ion-android-send footer-btn" type="submit">
-          </button>
-        </div>
+      <label class="item-input-wrapper">
+          <input type="text" ng-model="vm.message" placeholder="Send a message..." required></input>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-android-send footer-btn" type="submit"></button>
+      </div>
     </ion-footer-bar>
   </form>
 </ion-view>
