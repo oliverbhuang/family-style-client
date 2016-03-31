@@ -1,7 +1,5 @@
-<ion-view>
-  <ion-content class="padding text-center">
-    <h2>Search Restaurants</h2>
-
+<ion-view title="Family Style">
+  <ion-content class="grey-background">
     <form name="form" novalidate ng-submit="form.$valid && vm.restSearch(vm.restaurant, vm.location, form)">
 
       <div class="list list-inset">
@@ -11,9 +9,6 @@
             placeholder="Restaurant name, category"
             ng-model="vm.restaurant">
         </label>
-
-        <br>
-
         <label class="item item-input"
           ng-class="{ 'has-errors': form.$submitted && form.$invalid, 'no-errors': form.$submitted && form.$valid }">
           <input type="text"
@@ -35,14 +30,25 @@
     </form>
 
     <div>
-      <h3 ng-show="!vm.restResults.length && vm.hasSearched">No restaurants found</h3>
-      <img src="img/ripple.gif" ng-show="vm.loadRipple"/>
-      <div ng-repeat="rest in vm.restResults">
-        <h3>{{rest.name}}</h3>
-        <p>{{rest.location.address[0]}}, {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}</p>
-        <button class="button button-block button-assertive" ng-click="vm.tablePage(rest)">
-          Table Options
-        </button>
+      <div class="text-center">
+        <h2 ng-show="!vm.restResults.length && vm.hasSearched && !vm.loadRipple">No restaurants found</h2>
+        <img src="img/ripple.gif" ng-show="vm.loadRipple"/>
+      </div>
+      <div ng-click="vm.tablePage(rest)" class="white-background rest-item"ng-repeat="rest in vm.restResults">
+        <div class="col-25">
+          <img src="{{rest.image_url}}"/>
+        </div>
+        <div class="col-65">
+          <div style="margin-top: 5px;">
+            <strong>{{rest.name}}</strong>
+          </div>
+          <div class="top-address">
+            {{rest.location.address[0]}}
+          </div>
+          <div>
+            {{rest.location.city}}, {{rest.location.state_code}}, {{rest.location.postal_code}}
+          </div>
+        </div>
       </div>
     </div>
   </ion-content>
