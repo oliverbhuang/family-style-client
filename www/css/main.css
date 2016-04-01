@@ -1,0 +1,21 @@
+.opening {
+  font-size: 25px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 65%;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: white;
+  margin-top: 5%;
+}
+
+.fb-button {
+  margin-top: 38%;
+}
+
+.backpic {
+    background-image: url("../img/frontImage.png");
+    background-size: 100% 100%;
+}
