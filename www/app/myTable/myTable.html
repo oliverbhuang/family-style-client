@@ -1,8 +1,8 @@
 <ion-view view-title="My Table">
-  <ion-content class="padding text-center">
+  <ion-content class="padding text-center mytable">
     <div>
       <div>
-        <h3>{{vm.name}}</h3>
+        <div class="restaurant-name">{{vm.name}}</div>
         <p class="clickable-address" ng-click="vm.openMaps(
           vm.location.address[0] + ',' +
           vm.location.city + ', ' +
@@ -10,24 +10,22 @@
           vm.location.postal_code)">
           {{vm.location.address[0]}},
           {{vm.location.city}},
-          {{vm.location.state_code}},
+          {{vm.location.state_code}}
           {{vm.location.postal_code}}
         </p>
       </div>
     </div>
-    <hr/>
     <div class="list list-inset">
       <p>
-         {{vm.dateTime | date:"medium"}}
+        {{vm.dateTime | date:"MMM d, y h:mm a "}}
       </p>
     </div>
+    <hr/>
     <div>
       <ul ng-repeat="user in vm.users">
         <li>{{user.name}}<span ng-show='$index == 0'> (creator)</span></li>
       </ul>
     </div>
-
-    <h1> Chatroom </h1>
     <div ng-repeat="message in vm.chat">
 
       <div ng-if="!vm.isUser(message.userid)" class="message-wrapper-left">

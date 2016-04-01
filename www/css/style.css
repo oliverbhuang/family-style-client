@@ -83,3 +83,7 @@
 .tabs {
   background-size: 100% 0px;
 }
+
+.mytable .list-inset {
+  margin: 0px;
+}
