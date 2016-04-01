@@ -75,3 +75,11 @@
 .white-background {
   background-color: #FFFFFF
 }
+
+.bar {
+    background-size: 100% 0px;
+}
+
+.tabs {
+  background-size: 100% 0px;
+}
