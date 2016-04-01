@@ -4,13 +4,16 @@
   white-space: normal;
 }
 
+.outings-item .item-content {
+  padding: 6px 49px 6px 6px;
+}
+
 .phone {
     margin-top: 5px;
 }
 
 .outing-item {
-  padding-top: 4px;
-  padding-bottom: 4px
+  font-size: 13px;
 }
 
 .outings-remove button {

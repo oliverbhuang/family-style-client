@@ -29,6 +29,7 @@
   -ms-flex: 0 0 55%;
   flex: 0 0 55%;
   max-width: 55%;
+  padding: 0 5px;
 }
 
 .reload {
@@ -39,4 +40,8 @@
 
 .results {
   padding-top: 30px;
+}
+
+.col-25 img {
+  width: 100%;
 }
