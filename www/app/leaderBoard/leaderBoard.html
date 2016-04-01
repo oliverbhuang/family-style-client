@@ -5,7 +5,7 @@
         <div class="col-25">
           <img src="{{restaurant[0].image}}"/>
         </div>
-        <div class="col-65">
+        <div class="col-55">
           <div style="margin-top: 5px;">
             <strong>{{restaurant[0].restaurantName}}</strong>
           </div>
@@ -16,8 +16,10 @@
             {{restaurant[0].city}}, {{restaurant[0].state_code}} {{rest.location.postal_code}}
           </div>
         </div>
-        <div class="col-10">
-          {{restaurant[1]}}
+        <div class="col-20 text-center">
+          <div class="pops">
+            {{restaurant[1]}}
+          </div>
         </div>
       </div>
     </ion-list>
