@@ -1,15 +1,13 @@
 <ion-view view-title="Nearby Tables">
   <ion-content class="grey-background">
-    <div class="text-center">
-      <h2 ng-show="!vm.nearbyEvents.length && vm.loadingComplete">No restaurants found</h2>
-    </div>
-    <div>
-      <a class="button button-block button-assertive" ng-click="activate()">Reload this area</a>
+    <i class="ion-loop reload" ng-click="vm.activate()" ></i>
+    <div class="text-center results">
+      <div ng-show="!vm.nearbyEvents.length && vm.loadingComplete">No restaurants found</div>
     </div>
     <div>
       <div ng-click="vm.tablePage(rest)" class="white-background nearby-item" ng-repeat="rest in vm.nearbyEvents">
         <div class="col-25">
-          <img src="{{rest.image_url}}"/>
+          <img src="{{rest.image}}"/>
         </div>
         <div class="col-55">
           <div class="restaurant-name">
@@ -22,7 +20,7 @@
             {{rest.restaurantAddress.city}}, {{rest.restaurantAddress.state_code}} {{rest.restaurantAddress.postal_code}}
           </div>
         </div>
-        <div class="col-15">
+        <div class="col-20">
           <button class="button button-small button-assertive" ng-click="vm.tablePage(rest)">
             Table Options
           </button>
