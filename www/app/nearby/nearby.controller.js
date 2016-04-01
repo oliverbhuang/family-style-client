@@ -12,6 +12,7 @@
     vm.nearbyJoinPage = tablesService.toNearbyJoinPage;
     vm.updateInfo = tablesService.putUserAndEvent;
     vm.userId = usersService.getUserId();
+    vm.activate = activate;
 
     activate();
 
