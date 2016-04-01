@@ -1,6 +1,9 @@
 <ion-view view-title="Nearby Tables">
   <ion-content class="grey-background">
     <div>
+      <a class="button button-block button-assertive" ng-click="activate()">Reload this area</a>
+    </div>
+    <div>
       <div ng-click="vm.tablePage(rest)" class="white-background nearby-item" ng-repeat="rest in vm.nearbyEvents">
         <div class="col-25">
           <img src="{{rest.image_url}}"/>
