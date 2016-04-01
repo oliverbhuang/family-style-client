@@ -13,6 +13,7 @@
     vm.updateInfo = tablesService.putUserAndEvent;
     vm.userId = usersService.getUserId();
     vm.activate = activate;
+    vm.loadingComplete = false;
 
     activate();
 
@@ -26,6 +27,7 @@
     };
 
     function activate() {
+      vm.loadingComplete = false;
       $ionicLoading.show({
         template: 'Loading...'
       });
@@ -33,6 +35,7 @@
       nearbyService.getLocNearby()
       .then(function (nearbyEvents) {
         vm.nearbyEvents = nearbyEvents;
+        vm.loadingComplete = true;
         $ionicLoading.hide();
       });
     }
