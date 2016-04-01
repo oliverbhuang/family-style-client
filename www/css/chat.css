@@ -7,7 +7,7 @@ body {
 /* maxlength on the textarea will prevent /*
 /* it from getting too large also */
 .bar-footer {
-  overflow: visible !important;
+  overflow: visible;
 }
 
 .bar-footer textarea {
@@ -30,7 +30,7 @@ at the bottom as the textarea resizes */
 }
 
 .footer-btn {
-  position: absolute !important;
+  position: absolute;
   bottom: 0;
 }
 
@@ -66,7 +66,7 @@ img.profile-pic.right {
 }
 
 .bar.item-input-inset .item-input-wrapper input {
-  width: 100% !important;
+  width: 100%;
 }
 
 .message-wrapper-right {
@@ -147,7 +147,7 @@ img.profile-pic.right {
 }
 
 input, textarea, .item-input, .item-input-wrapper {
-  background-color: #f4f4f4 !important;
+  background-color: #f4f4f4;
 }
 
 .bold {
@@ -155,7 +155,7 @@ input, textarea, .item-input, .item-input-wrapper {
 }
 
 .cf {
-  clear: both !important;
+  clear: both;
 }
 
 a.autolinker {
